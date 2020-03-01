@@ -1,0 +1,32 @@
+.button {
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    padding: 11px 32px;
+    color: #ffffff;
+}
+
+.button:hover {
+    text-shadow: rgba(255, 255, 255, 0.58) 1px 1px 1px;
+}
+
+.button.green {
+    border: solid white 1px;
+    background: #319b21;
+}
+
+.button.green:hover {
+    border: solid 1px #319b21;
+}
+
+.button.white {
+    border: solid white 1px ;
+    background: transparent;
+}
+
+.button.white:hover {
+    box-shadow: 0 0 40px rgba(0, 0, 0, .2) inset;
+}
+
+

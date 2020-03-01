@@ -1,0 +1,22 @@
+.cat_info_container {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.medias{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.medias > *{
+    width: 400px;
+    margin: 10px;
+}
+
+.cat_info_container > div > img {
+    width: 300px;
+    height: auto;
+}

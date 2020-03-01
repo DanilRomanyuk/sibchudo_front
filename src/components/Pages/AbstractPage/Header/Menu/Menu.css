@@ -1,0 +1,34 @@
+.menu{
+    height: 5vh;
+    display:flex;
+    background-color: #329b21a3;
+    color: white;
+    font-size: 3vh;
+}
+
+.menu_title{
+    margin: auto 0 auto 1vh;
+    font-weight: bold;
+    font-family: Montserrat, sans-serif;
+}
+
+.menu_items{
+
+    width: 50vw;
+    display: flex;
+    font-size: 2vh;
+    margin: auto;
+    justify-content: space-evenly;
+}
+
+@media (max-width: 720px) {
+    .menu{
+        flex-wrap: wrap;
+    }
+    .menu_items{
+        margin-top: 15px;
+        justify-content: space-evenly;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+}

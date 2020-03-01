@@ -1,0 +1,34 @@
+.pagination > li {
+    display: inline-block;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+    cursor: pointer;
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    text-decoration: none;
+    border: 1px solid #329b21;
+}
+
+.pagination > li.active > a {
+    color: white;
+    background-color: #329b21;
+    border-color: #329b21;
+}
+
+/* Style the active class (and buttons on mouse-over) */
+.pagination > li > a:hover {
+    background-color: #329b21;
+    color: white;
+}
+
+.break-me > a {
+    border: none !important;
+}
+
+.break-me > a:hover{
+    background: none !important;
+    color: inherit !important;
+}

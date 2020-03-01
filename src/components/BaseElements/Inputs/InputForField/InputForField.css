@@ -1,0 +1,7 @@
+.form-input{
+    padding: 10px 15px;
+    border-radius: 3px;
+    width: calc(100% - 30px);
+    border: 1px solid hsl(0,0%,80%);
+    margin: 20px auto;
+}

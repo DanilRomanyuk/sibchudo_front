@@ -1,0 +1,7 @@
+.search_row{
+    display: flex;
+}
+
+.search_row>* {
+    margin: 5px;
+}

@@ -1,0 +1,26 @@
+.litter_preview{
+    align-content: center;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 1px solid #319b21;
+}
+
+.litter_preview>div{
+    max-width: 30%;
+}
+
+.big_letter{
+    font-size: xx-large;
+}
+
+@media (max-width: 1000px) {
+    .litter_preview{
+        flex-direction: column;
+    }
+    .litter_preview>div{
+        max-width: 100%;
+    }
+}

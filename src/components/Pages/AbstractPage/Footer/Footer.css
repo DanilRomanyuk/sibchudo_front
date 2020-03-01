@@ -1,0 +1,17 @@
+.footer {
+    background-color: #329B21;
+    padding: 0 20%;
+    color: white;
+}
+
+.footer > div {
+    display: flex;
+    padding: 16px;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+    flex-wrap: wrap;
+}
+
+.footer>:last-child {
+    border: none;
+}

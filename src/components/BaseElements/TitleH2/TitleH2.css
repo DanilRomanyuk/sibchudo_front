@@ -1,0 +1,29 @@
+.title_h2 {
+    display: flex;
+}
+
+/*.title_h2 > h2 {*/
+h2 {
+    margin: 0;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+}
+
+.title_h2_lines {
+    margin-right: 40px;
+    margin-top: 7px;
+    width: 100px;
+    border-top: 3px solid #329b21a3;
+}
+
+.title_h2_lines > div {
+    width: 50px;
+    margin-top: 7px;
+    border-bottom: 3px solid #329b21a3;
+}
+
+@media  (max-width: 720px) {
+    .title_h2_lines {
+        display: none;
+    }
+}

@@ -1,0 +1,19 @@
+/*.cat_preview div {*/
+/*    width: 200px;*/
+/*    min-height: 200px;*/
+/*    border: 3px solid #319b21;*/
+/*}*/
+
+.cat_avatar > img {
+    width: inherit;
+    height: auto;
+}
+
+.cat_avatar {
+    width: 200px;
+    /*border: 3px solid #319b21;*/
+}
+
+a>.cat_avatar{
+    cursor: pointer;
+}

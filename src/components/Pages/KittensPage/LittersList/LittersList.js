@@ -4,6 +4,7 @@ import ReactPaginate from "react-paginate";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowLeft, faArrowRight} from "@fortawesome/free-solid-svg-icons";
 import LitterPreview from "../../../BaseElements/Litter/LitterPreview/LitterPreview";
+import {BASE_URL} from "../../../../const";
 
 class LittersList extends Component {
     constructor(props) {
@@ -17,20 +18,22 @@ class LittersList extends Component {
 
     loadLitters() {
         let self = this;
-        Axios.post("/api/litter/count",{criteria:{
+        Axios.post(BASE_URL + "/api/litter/count", {
+            criteria: {
                 birthday: {
-                    sign:">",
+                    sign: ">",
                     value: '2000-01-01'
                 }
-            }}).then(
+            }
+        }).then(
             function (response) {
                 self.setState({
                     pages: Math.ceil(response.data / self.props.countOnPage)
                 });
-                Axios.post("/api/litter/get", {
-                    criteria:{
+                Axios.post(BASE_URL + "/api/litter/get", {
+                    criteria: {
                         birthday: {
-                            sign:">",
+                            sign: ">",
                             value: '2000-01-01'
                         }
                     },

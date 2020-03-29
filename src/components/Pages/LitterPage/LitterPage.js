@@ -6,6 +6,7 @@ import "./LitterPage.css";
 import LitterName from "../../BaseElements/Litter/LiiterName/LitterName";
 import CatPreview from "../../BaseElements/Cat/CatPreview/CatPreview";
 import CatTable from "../../BaseElements/Cat/CatTable/CatTable";
+import {BASE_URL} from "../../../const";
 
 
 const litterTemplate = {
@@ -64,10 +65,10 @@ class LitterPage extends Component {
 
     loadLitter() {
         let self = this;
-        axios.post("/api/litter/" + this.props.match.params.id + "/get").then(function (result) {
+        axios.post(BASE_URL + "/api/litter/" + this.props.match.params.id + "/get").then(function (result) {
             if (result.data != null) {
                 self.setState({litter: result.data});
-                axios.post("/api/cat/get", {criteria: {litter: {sign: "=", value: result.data.id}}}).then(
+                axios.post(BASE_URL+"/api/cat/get", {criteria: {litter: {sign: "=", value: result.data.id}}}).then(
                     function (kittensData) {
                         self.setState({kittens: kittensData.data});
                     }

@@ -10,6 +10,7 @@ import CatInfo from "./CatInfo/CatInfo";
 import CatName from "../../BaseElements/Cat/CatName/CatName";
 import CatAvatar from "../../BaseElements/Cat/CatAvatar/CatAvatar";
 import LitterPreview from "../../BaseElements/Litter/LitterPreview/LitterPreview";
+import {BASE_URL} from "../../../const";
 
 const catTemplate = {
     name: "Загрузка...",
@@ -60,17 +61,17 @@ class CatPage extends Component {
                     <CatAvatar cat={cat}/>
                 </div>
                 <div className={"medias"}>
-                    {cat.medias ? cat.medias.map((item)=>{
+                    {cat.medias ? cat.medias.map((item) => {
                         return <Img
                             src={item.destination}
                             key={item.id}
                             loader={<Loader unLoader={defaultCatImage} type={"Oval"} width={300} height={300}/>}/>
-                    }):""}
+                    }) : ""}
                 </div>
                 <div>
-                    {cat.litters ? cat.litters.map((item)=>{
+                    {cat.litters ? cat.litters.map((item) => {
                         return <LitterPreview litter={item} key={item.id}/>
-                    }):""}
+                    }) : ""}
                 </div>
             </AbstractPage>
         );
@@ -78,15 +79,14 @@ class CatPage extends Component {
 
     loadCat() {
         let self = this;
-        axios.post("/api/cat/" + this.props.match.params.id + "/get").then(function (result) {
+        axios.post(BASE_URL + "/api/cat/" + this.props.match.params.id + "/get").then(function (result) {
             if (result.data != null) {
                 self.setState({cat: result.data});
+            } else {
+                document.location.href = "/404";
             }
-            else {
-                document.location.href="/404";
-            }
-        }).catch(()=>{
-            document.location.href="/404";
+        }).catch(() => {
+            document.location.href = "/404";
         });
     }
 }

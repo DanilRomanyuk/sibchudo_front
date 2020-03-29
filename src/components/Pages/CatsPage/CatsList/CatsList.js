@@ -5,6 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowLeft, faArrowRight} from "@fortawesome/free-solid-svg-icons"
 import Axios from "axios";
 import "./CatsList.css";
+import {BASE_URL} from "../../../../const";
 
 class CatsList extends Component {
 
@@ -19,12 +20,12 @@ class CatsList extends Component {
 
     loadCats() {
         let self = this;
-        Axios.post("/api/cat/count").then(
+        Axios.post(BASE_URL + "/api/cat/count").then(
             function (response) {
                 self.setState({
                     pages: Math.ceil(response.data / self.props.countCatOnPage)
                 });
-                Axios.post("/api/cat/get", {
+                Axios.post(BASE_URL+"/api/cat/get", {
                     limit: self.props.countCatOnPage,
                     offset: self.state.offset,
                     order: {name: "asc"}
@@ -42,35 +43,37 @@ class CatsList extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if(JSON.stringify(prevProps) !== JSON.stringify(this.props))
+        if (JSON.stringify(prevProps) !== JSON.stringify(this.props))
             this.loadCats();
     }
 
     render() {
         return (
-           <>
-               <div className={"cats_list"}>
-                   {this.state.cats.map((cat) => <CatPreview edit={this.props.edit} handler={()=>{this.loadCats()}} toolbar={this.props.toolbar} key={cat.id} cat={cat}/>)}
-               </div>
-               <ReactPaginate
-                   previousLabel={<FontAwesomeIcon icon={faArrowLeft}/>}
-                   nextLabel={<FontAwesomeIcon icon={faArrowRight}/>}
-                   breakLabel={'...'}
-                   breakClassName={'break-me'}
-                   onPageChange={(data) => {
-                       let selected = data.selected;
-                       let offset = Math.ceil(selected * this.props.countCatOnPage);
-                       this.setState({
-                           offset: offset
-                       }, this.loadCats);
-                   }}
-                   containerClassName={'pagination'}
-                   subContainerClassName={'pages pagination'}
-                   activeClassName={'active'}
-                   pageCount={this.state.pages}
-                   pageRangeDisplayed={3}
-                   marginPagesDisplayed={2}/>
-           </>
+            <>
+                <div className={"cats_list"}>
+                    {this.state.cats.map((cat) => <CatPreview edit={this.props.edit} handler={() => {
+                        this.loadCats()
+                    }} toolbar={this.props.toolbar} key={cat.id} cat={cat}/>)}
+                </div>
+                <ReactPaginate
+                    previousLabel={<FontAwesomeIcon icon={faArrowLeft}/>}
+                    nextLabel={<FontAwesomeIcon icon={faArrowRight}/>}
+                    breakLabel={'...'}
+                    breakClassName={'break-me'}
+                    onPageChange={(data) => {
+                        let selected = data.selected;
+                        let offset = Math.ceil(selected * this.props.countCatOnPage);
+                        this.setState({
+                            offset: offset
+                        }, this.loadCats);
+                    }}
+                    containerClassName={'pagination'}
+                    subContainerClassName={'pages pagination'}
+                    activeClassName={'active'}
+                    pageCount={this.state.pages}
+                    pageRangeDisplayed={3}
+                    marginPagesDisplayed={2}/>
+            </>
         );
     }
 }

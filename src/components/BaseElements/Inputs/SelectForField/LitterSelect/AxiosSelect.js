@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import SelectForField from "../SelectForField";
 import Axios from "axios";
 import {getCatFullName} from "../../../Cat/CatName/CatName";
+import {BASE_URL} from "../../../../../const";
 
 class AxiosSelect extends Component {
 
@@ -16,8 +17,8 @@ class AxiosSelect extends Component {
         this.loadOptions();
     }
 
-    loadOptions(){
-        Axios.post(this.props.url).then((response) =>{
+    loadOptions() {
+        Axios.post(BASE_URL + this.props.url).then((response) => {
             this.setState({
                 options: this.props.handler
             });

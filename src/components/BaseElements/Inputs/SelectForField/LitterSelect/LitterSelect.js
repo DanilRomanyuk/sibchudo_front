@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import SelectForField from "../SelectForField";
 import Axios from "axios";
 import {getCatFullName} from "../../../Cat/CatName/CatName";
+import {BASE_URL} from "../../../../../const";
 
 class LitterSelect extends Component {
 
@@ -17,7 +18,7 @@ class LitterSelect extends Component {
     }
 
     loadOptions(){
-        Axios.post('/api/litter/get').then((response) =>{
+        Axios.post(BASE_URL+'/api/litter/get').then((response) =>{
             this.setState({
                 options: response.data.map((litter)=>{
                     let label = "Помет(" + litter.letter + ") ";

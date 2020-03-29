@@ -14,6 +14,7 @@ import OwnerSelect from "../../../../BaseElements/Inputs/SelectForField/OwnerSel
 import TitleSelect from "../../../../BaseElements/Inputs/SelectForField/TitleSelect/TitleSelect";
 import ClassSelect from "../../../../BaseElements/Inputs/SelectForField/ClassSelect/ClassSelect";
 import Button from "../../../../BaseElements/Button/Button";
+import {BASE_URL} from "../../../../../const";
 
 class AdminCatEditForm extends Component {
 
@@ -88,19 +89,19 @@ class AdminCatEditForm extends Component {
                 })}
                 onSubmit={(values, {setSubmitting}) => {
                     if(values.id){
-                        axios.post("/api/cat/"+this.props.cat.id+"/edit", values).then(()=>{
+                        axios.post(BASE_URL+"/api/cat/"+this.props.cat.id+"/edit", values).then(()=>{
                             this.props.handler(JSON.stringify(values));
                             alert("Котик отредактирован");
                         }).catch(()=>{
                             alert("Не удалось создать котика");
                         });
                     }else{
-                        axios.post("/api/cat/create", values).then(()=>{
+                        axios.post(BASE_URL+"/api/cat/create", values).then(()=>{
                             this.props.handler(JSON.stringify(values));
                             alert("Котик добавлен");
                         }).catch(()=>{
                             alert("Не удалось создать котика");
-                        });;
+                        });
                     }
                 }}
             >

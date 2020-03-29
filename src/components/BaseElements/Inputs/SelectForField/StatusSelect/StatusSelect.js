@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import SelectForField from "../SelectForField";
 import Axios from "axios";
 import {getCatFullName} from "../../../Cat/CatName/CatName";
+import {BASE_URL} from "../../../../../const";
 
 class StatusSelect extends Component {
 
@@ -17,7 +18,7 @@ class StatusSelect extends Component {
     }
 
     loadOptions(){
-        Axios.post('/api/cat/statuses/get').then((response) =>{
+        Axios.post(BASE_URL+'/api/cat/statuses/get').then((response) =>{
             this.setState({
                 options: response.data.map((status)=>{
                     return {value:status.value, label: status.name}

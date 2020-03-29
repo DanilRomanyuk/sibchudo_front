@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import Axios from "axios";
 import {getCatFullName} from "../../../Cat/CatName/CatName";
 import SelectForField from "../SelectForField";
+import {BASE_URL} from "../../../../../const";
 
 class OwnerSelect extends Component {
     constructor(props) {
@@ -16,7 +17,7 @@ class OwnerSelect extends Component {
     }
 
     loadOptions(){
-        Axios.post('/api/owner/get').then((response) =>{
+        Axios.post(BASE_URL+'/api/owner/get').then((response) =>{
             this.setState({
                 options: response.data.map((owner)=>{
                     return {value:owner.id, label: owner.name}

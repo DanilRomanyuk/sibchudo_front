@@ -4,6 +4,7 @@ import CatPreview from "../../../BaseElements/Cat/CatPreview/CatPreview";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {Carousel} from 'react-responsive-carousel';
 import Img from 'react-image';
+import {BASE_URL} from "../../../../const";
 
 
 class CatSlider extends Component {
@@ -14,7 +15,7 @@ class CatSlider extends Component {
 
     loadCats() {
         let self = this;
-        Axios.post("/api/cat/get", {limit: 5}).then(
+        Axios.post(BASE_URL + "/api/cat/get", {limit: 5}).then(
             function (data) {
                 self.setState({cats: data.data});
                 console.log(self.state);

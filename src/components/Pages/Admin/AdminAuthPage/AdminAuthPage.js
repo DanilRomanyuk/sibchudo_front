@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {ErrorMessage, Field, Formik} from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import {BASE_URL} from "../../../../const";
 
 class AdminAuthPage extends Component {
     render() {
@@ -13,7 +14,7 @@ class AdminAuthPage extends Component {
                     password: Yup.string().required()
                 })}
                 onSubmit={(values, {setSubmitting}) => {
-                    axios.post("/api/login/check", values).then((result) => {
+                    axios.post(BASE_URL+"/api/login/check", values).then((result) => {
                         alert("Вы успешно зашли в админ панель, нажмите ОК");
                         document.location.href = "/admin/main";
                     }).catch((error) => {

@@ -1,7 +1,5 @@
 import React, {Component} from "react";
 import AdminAbstractPage from "../AdminAbstractPage/AdminAbstractPage";
-import Link from "../../../BaseElements/Link/Link";
-import MenuItem from "../../AbstractPage/Header/Menu/MenuItem/MenuItem";
 
 class AdminMainPage extends Component {
     render() {

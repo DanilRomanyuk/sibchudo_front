@@ -1,10 +1,13 @@
 import React, {Component} from "react";
 import ReactPaginate from "react-paginate";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowLeft, faArrowRight} from "@fortawesome/free-solid-svg-icons"
+import {faArrowLeft, faArrowRight} from "@fortawesome/free-solid-svg-icons";
 import Axios from "axios";
 import {BASE_URL} from "../../../../../const";
 import {Table, Tbody, Th, Thead, Tr} from "react-super-responsive-table";
+import CatTableCell from "../../../../BaseElements/Cat/CatTable/CatTableCell/CatTableCell";
+import CatAge from "../../../../BaseElements/Cat/CatAge/CatAge";
+import CatName from "../../../../BaseElements/Cat/CatName/CatName";
 
 class AdminLittersTable extends Component {
 
@@ -32,7 +35,6 @@ class AdminLittersTable extends Component {
                 }).then(
                     function (litters) {
                         let data = litters.data
-                        console.log(data);
                         self.setState({litters: data});
                     }
                 );
@@ -90,9 +92,15 @@ class AdminLittersTable extends Component {
     }
 
     litterRow(litter) {
+        console.log(litter)
         return (
             <Tr key={litter.id}>
-                {litter.letter}
+                <a href={"/litter/"+litter.id} target={"_blank"}><CatTableCell>{litter.letter}</CatTableCell></a>
+                <CatTableCell><CatAge birthday={litter.birthday}/></CatTableCell>
+                <CatTableCell><CatName cat={litter.father}/></CatTableCell>
+                <CatTableCell><CatName cat={litter.mother}/></CatTableCell>
+                <CatTableCell>{litter.cats.length}</CatTableCell>
+                <CatTableCell>buttons</CatTableCell>
             </Tr>
         );
     }

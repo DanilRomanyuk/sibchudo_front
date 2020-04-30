@@ -11,6 +11,7 @@ import CatStatus from "../../../../BaseElements/Cat/CatStatus/CatStatus";
 import CatColor from "../../../../BaseElements/Cat/CatColor/CatColor";
 import AdminCatToolbar from "../AdminCatTollbar/AdminCatToolbar";
 import "./AdminCatTable.css";
+import CatAge from "../../../../BaseElements/Cat/CatAge/CatAge";
 
 class AdminCatTable extends Component {
 
@@ -59,6 +60,7 @@ class AdminCatTable extends Component {
                         <Tr>
                             <Th>Имя</Th>
                             <Th>Пол</Th>
+                            <Th>Дата рождения</Th>
                             <Th>Статус</Th>
                             <Th>Окрас</Th>
                             <Th>Управление</Th>
@@ -98,6 +100,9 @@ class AdminCatTable extends Component {
                     key={cat.id + "name"}>{cat.name}</CatTableCell></a>
                 <CatTableCell key={cat.id + "gender"}>
                     <CatGender gender={cat.gender} icons={true}/>
+                </CatTableCell>
+                <CatTableCell key={cat.id + "age"}>
+                    <CatAge birthday={cat.litter.birthday}/>
                 </CatTableCell>
                 <CatTableCell key={cat.id + "status"}>
                     <CatStatus status={cat.status}/>

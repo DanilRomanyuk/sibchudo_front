@@ -6,7 +6,7 @@ class AdminAbstractPage extends Component {
         return (
             <Fragment>
                 <title>Админ-панель</title>
-                <div className={"menu"}>
+                <div className={"bg_green menu"}>
                     <div className={"menu_title"}>
                         <div>СИБИРСКОЕ ЧУДО АДМИН ПАНЕЛЬ</div>
                     </div>

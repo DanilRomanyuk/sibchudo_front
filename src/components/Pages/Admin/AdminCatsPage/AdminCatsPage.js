@@ -1,10 +1,11 @@
 import React, {Component} from "react";
 import AdminAbstractPage from "../AdminAbstractPage/AdminAbstractPage";
-import CatsList from "../../CatsPage/CatsList/CatsList";
 import AdminCatToolbar from "./AdminCatTollbar/AdminCatToolbar";
-import AdminCatEditForm from "./AdminCatEditForm/AdminCatEditForm";
+// import AdminCatEditForm from "./AdminCatEditForm/AdminCatEditForm";
 import TitleH2 from "../../../BaseElements/TitleH2/TitleH2";
 import AdminCatTable from "./AdminCatTable/AdminCatTable";
+import Button from "../../../BaseElements/Button/Button";
+import "./AdminCatPage.css";
 
 class AdminCatsPage extends Component {
 
@@ -25,9 +26,16 @@ class AdminCatsPage extends Component {
                 {/*    handler={(formState)=>{this.setState({formState:formState})}}*/}
                 {/*    reset={()=>{this.setState({editableCat:null})}}*/}
                 {/*    cat={this.state.editableCat}/>*/}
+
+                <div className={"mb_20"}>
+                    <Button color={"green"}>Добавить животное</Button>
+                </div>
+
                 <AdminCatTable
                     formState={this.state.formState}
-                    edit={(cat)=>{this.setState({editableCat:cat})}}
+                    edit={(cat) => {
+                        this.setState({editableCat: cat})
+                    }}
                     toolbar={AdminCatToolbar}
                     countCatOnPage={30}/>
             </AdminAbstractPage>

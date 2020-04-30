@@ -24,7 +24,7 @@ body {
     color: blue;
 }
 
-.bg_green {
+html .bg_green {
     background-color: var(--green);
 }
 

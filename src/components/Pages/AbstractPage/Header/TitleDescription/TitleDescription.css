@@ -1,5 +1,5 @@
 .green_rectangle {
-    background-color: #329b21a3;
+    background-color:  var(--green_transparent);
     height: calc(100% - 5vh);
     width: 35%;
     margin-left: 3%;

@@ -3,7 +3,7 @@ import AbstractPage from "../AbstractPage/AbstractPage";
 import TitleH2 from "../../BaseElements/TitleH2/TitleH2";
 import './HomePage.css';
 import Button from "../../BaseElements/Button/Button";
-import CatSlider from "./CatSlider/CatSlider";
+// import CatSlider from "./CatSlider/CatSlider";
 
 
 class HomePage extends Component {

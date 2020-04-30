@@ -3,9 +3,8 @@ import Axios from "axios";
 import CatPreview from "../../../BaseElements/Cat/CatPreview/CatPreview";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {Carousel} from 'react-responsive-carousel';
-import Img from 'react-image';
 import {BASE_URL} from "../../../../const";
-
+import "./CatSlider.css";
 
 class CatSlider extends Component {
     constructor(props) {
@@ -30,15 +29,9 @@ class CatSlider extends Component {
     render() {
         return (
             <div>
-                <Carousel
+                <Carousel className={""}
                     showThumbs={false}>
-
-                    {/*<div><img src={"http://placekitten.com/g/200/200"}/></div>*/}
-                    {/*<div><img src={"http://placekitten.com/g/200/200"}/></div>*/}
-                    {/*<div><img src={"http://placekitten.com/g/200/200"}/></div>*/}
-                    {/*<div>123</div>*/}
-                    {this.state.cats.map(cat => <div><CatPreview key={cat.id} cat={cat}/></div>)}
-                    {/*{this.state.cats.map(cat => <img src={cat.avatar.destination}/>)}*/}
+                    {this.state.cats.map(cat => <div className={"cat_slider_block"}><CatPreview key={cat.id} cat={cat}/></div>)}
                 </Carousel>
             </div>
         );

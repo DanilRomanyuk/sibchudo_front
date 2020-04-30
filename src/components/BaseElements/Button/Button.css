@@ -13,11 +13,11 @@
 
 .button.green {
     border: solid white 1px;
-    background: #319b21;
+    background: var(--green);
 }
 
 .button.green:hover {
-    border: solid 1px #319b21;
+    border: solid 1px var(--green);
 }
 
 .button.white {

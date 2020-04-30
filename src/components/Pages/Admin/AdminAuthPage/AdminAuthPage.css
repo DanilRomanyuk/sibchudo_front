@@ -1,0 +1,11 @@
+.auth_form{
+    text-align: center;
+}
+
+.auth_form input{
+    /*margin: auto;*/
+}
+
+.error_message{
+    color: red;
+}

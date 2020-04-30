@@ -1,21 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap&subset=cyrillic,cyrillic-ext');
 
-body{
+body {
     margin: 0 !important;
     font-family: Montserrat, sans-serif;
     font-weight: 400;
+    --green: #329b21;
+    --green_transparent: #329b21a3;
 }
 
-.content{
+.content {
     margin: 5% 20%;
 }
 
-.color_green{
-    color: #329b21;
+.color_green {
+    color: var(--green);
 }
 
-.bg_green{
-    background-color: #329b21;
+.bg_green {
+    background-color: var(--green);
 }
 
 @media (max-width: 720px) {

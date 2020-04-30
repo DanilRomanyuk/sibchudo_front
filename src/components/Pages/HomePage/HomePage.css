@@ -14,14 +14,11 @@
     margin: auto;
 }
 
+
 .cat_slider{
     width: 60%;
     height: 300px;
-    border: 3px solid #329b21a3;
-}
-
-.carousel .slide{
-    background: transparent!important;
+    border: 3px solid  var(--green_transparent);
 }
 
 @media  (max-width: 720px) {

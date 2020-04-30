@@ -13,13 +13,13 @@ h2 {
     margin-right: 40px;
     margin-top: 7px;
     width: 100px;
-    border-top: 3px solid #329b21a3;
+    border-top: 3px solid  var(--green_transparent);
 }
 
 .title_h2_lines > div {
     width: 50px;
     margin-top: 7px;
-    border-bottom: 3px solid #329b21a3;
+    border-bottom: 3px solid var(--green_transparent);
 }
 
 @media  (max-width: 720px) {

@@ -1,7 +1,7 @@
 .menu{
     height: 5vh;
     display:flex;
-    background-color: #329b21a3;
+    background-color:  var(--green_transparent);
     color: white;
     font-size: 3vh;
 }

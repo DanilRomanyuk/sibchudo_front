@@ -12,10 +12,10 @@ class AdminAbstractPage extends Component {
                     <div className={"menu_items"}>
                         <MenuItem url={'/admin/main'} content={'Главная'}/>
                         <MenuItem url={'/admin/cats'} content={'Кошки'}/>
-                        {/*<MenuItem url={'/admin/litters'} content={'Пометы'}/>*/}
+                        <MenuItem url={'/admin/litters'} content={'Пометы'}/>
                     </div>
                 </div>
-                {this.props.children}
+                <div className={'content'}>{this.props.children}</div>
             </Fragment>
         );
     }

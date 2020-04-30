@@ -3,61 +3,56 @@ import {ErrorMessage, Field, Formik} from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import {BASE_URL} from "../../../../const";
+import AbstractPage from "../../AbstractPage/AbstractPage";
+import "./AdminAuthPage.css";
+import Button from "../../../BaseElements/Button/Button";
 
 class AdminAuthPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            error: ""
+        }
+    }
+
     render() {
         return (
-            <Formik
-                initialValues={{username: '', password: ''}}
-                validationSchema={Yup.object().shape({
-                    username: Yup.string().required(),
-                    password: Yup.string().required()
-                })}
-                onSubmit={(values, {setSubmitting}) => {
-                    axios.post(BASE_URL+"/api/login/check", values).then((result) => {
-                        alert("Вы успешно зашли в админ панель, нажмите ОК");
-                        document.location.href = "/admin/main";
-                    }).catch((error) => {
-                        alert("Вы не смогли зайти в админ панель, попробуйте снова");
-                    })
-                }}
-            >
-                {({
-                      values,
-                      errors,
-                      touched,
-                      handleSubmit,
-                      /* and other goodies */
-                  }) => (
-                    <form onSubmit={handleSubmit}>
-                        <Field
-                            name="username"
-                            type="text"
-                            placeholder="Username"
-                        />
-                        <br/>
-                        <ErrorMessage
-                            name="email"
-                            component="div"
-                        />
-                        <br/>
-                        <Field
-                            name="password"
-                            type="password"
-                            placeholder="Password"
-                        />
-                        <br/>
-                        <ErrorMessage
-                            name="password"
-                            component="div"
-                        />
-                        <br/>
-                        <button type="submit">
-                            Войти
-                        </button>
-                    </form>
-                )}
-            </Formik>
+            <AbstractPage title={'Главная - Вход'}>
+                <Formik
+                    initialValues={{username: '', password: ''}}
+                    validationSchema={Yup.object().shape({
+                        username: Yup.string().required(),
+                        password: Yup.string().required()
+                    })}
+                    onSubmit={(values, {setSubmitting}) => {
+                        axios.post(BASE_URL + "/api/login/check", values).then((result) => {
+                            document.location.href = "/admin/main";
+                        }).catch((error) => {
+                            this.setState({error:"Не удалось войти"})
+                        })
+                    }}
+                >
+                    {({
+                          values,
+                          errors,
+                          touched,
+                          handleSubmit,
+                      }) => (
+                        <form className={"auth_form"}>
+                            <Field name="username" type="text" placeholder="Логин"/>
+                            <br/>
+                            <ErrorMessage name="email" component="div"/>
+                            <br/>
+                            <Field name="password" type="password" placeholder="Пароль"/>
+                            <br/>
+                            <ErrorMessage name="password" component="div" className={"error_message"}/>
+                            <div className={"error_message"}>{this.state.error}</div>
+                            <br/>
+                            <Button onClick={handleSubmit} className={"auth_form"} color={"green"}>Войти</Button>
+                        </form>
+                    )}
+                </Formik>
+            </AbstractPage>
         );
     }
 }

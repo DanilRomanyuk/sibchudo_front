@@ -1,23 +1,9 @@
 import React, {Component} from "react";
 import AdminAbstractPage from "../AdminAbstractPage/AdminAbstractPage";
-import * as Yup from "yup";
-import {Field, Formik} from "formik";
-import InputForField from "../../../BaseElements/Inputs/InputForField/InputForField";
-import LitterSelect from "../../../BaseElements/Inputs/SelectForField/LitterSelect/LitterSelect";
-import StatusSelect from "../../../BaseElements/Inputs/SelectForField/StatusSelect/StatusSelect";
-import CommunitySelect from "../../../BaseElements/Inputs/SelectForField/CommunitySelect/CommunitySelect";
-import GenderSelect from "../../../BaseElements/Inputs/SelectForField/GenderSelect/GenderSelect";
-import OwnerSelect from "../../../BaseElements/Inputs/SelectForField/OwnerSelect/OwnerSelect";
-import TitleSelect from "../../../BaseElements/Inputs/SelectForField/TitleSelect/TitleSelect";
-import ClassSelect from "../../../BaseElements/Inputs/SelectForField/ClassSelect/ClassSelect";
-import BreedSelect from "../../../BaseElements/Inputs/SelectForField/BreedSelect/BreedSelect";
-import BaseColorSelect from "../../../BaseElements/Inputs/SelectForField/BaseColorSelect/BaseColorSelect";
-import ColorCodeSelect from "../../../BaseElements/Inputs/SelectForField/ColorCodeSelect/ColorCodeSelect";
-import Button from "../../../BaseElements/Button/Button";
-import axios from "axios";
 import CatsList from "../../CatsPage/CatsList/CatsList";
 import AdminCatToolbar from "./AdminCatTollbar/AdminCatToolbar";
 import AdminCatEditForm from "./AdminCatEditForm/AdminCatEditForm";
+import TitleH2 from "../../../BaseElements/TitleH2/TitleH2";
 
 class AdminCatsPage extends Component {
 
@@ -32,7 +18,8 @@ class AdminCatsPage extends Component {
     render() {
         return (
             <AdminAbstractPage>
-                Вы на странице управления котиками
+                <TitleH2 text={"Кошки"}/>
+                <p>Здесь можно настроить список животных</p>
                 <AdminCatEditForm
                     handler={(formState)=>{this.setState({formState:formState})}}
                     reset={()=>{this.setState({editableCat:null})}}

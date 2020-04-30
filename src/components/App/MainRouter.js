@@ -16,6 +16,7 @@ import AdminCatsPage from "../Pages/Admin/AdminCatsPage/AdminCatsPage";
 import LitterPage from "../Pages/LitterPage/LitterPage";
 import Page404 from "../Pages/404/Page404";
 import Page404Admin from "../Pages/404/Page404Admin";
+import AdminLittersPage from "../Pages/Admin/AdminLittersPage/AdminLittersPage";
 
 
 class MainRouter extends Component {
@@ -36,6 +37,7 @@ class MainRouter extends Component {
                     <Route exact path="/admin" children={<AdminAuthPage/>}/>
                     <Route exact path="/admin/main" children={<AdminMainPage/>}/>
                     <Route exact path="/admin/cats" children={<AdminCatsPage/>}/>
+                    <Route exact path="/admin/litters" children={<AdminLittersPage/>}/>
                     <Route exact path='/admin/:all' children={<Page404Admin/>}/>
                     <Route children={<Page404/>}/>
                 </Switch>

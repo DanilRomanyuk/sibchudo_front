@@ -1,4 +1,5 @@
-import React, {Component} from "react";
+import React, {Component} from "react";// import CatSlider from "./CatSlider/CatSlider";
+
 import AbstractPage from "../AbstractPage/AbstractPage";
 import TitleH2 from "../../BaseElements/TitleH2/TitleH2";
 import './HomePage.css';

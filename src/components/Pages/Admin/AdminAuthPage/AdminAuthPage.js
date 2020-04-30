@@ -39,15 +39,11 @@ class AdminAuthPage extends Component {
                           handleSubmit,
                       }) => (
                         <form className={"auth_form"}>
-                            <Field name="username" type="text" placeholder="Логин"/>
-                            <br/>
+                            <Field className={"form-input"} name="username" type="text" placeholder="Логин"/>
                             <ErrorMessage name="email" component="div"/>
-                            <br/>
-                            <Field name="password" type="password" placeholder="Пароль"/>
-                            <br/>
+                            <Field className={"form-input"} name="password" type="password" placeholder="Пароль"/>
                             <ErrorMessage name="password" component="div" className={"error_message"}/>
                             <div className={"error_message"}>{this.state.error}</div>
-                            <br/>
                             <Button onClick={handleSubmit} className={"auth_form"} color={"green"}>Войти</Button>
                         </form>
                     )}

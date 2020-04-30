@@ -1,12 +1,14 @@
 import React, {Component, Fragment} from "react";
 import Select from "react-select";
 import {ErrorMessage} from "formik";
+import "./SelectForField.css";
 
 class SelectForField extends Component {
     render() {
         return (
             <Fragment>
                 <Select
+                    className={"form-select"}
                     isSearchable={true}
                     placeholder={this.props.placeholder}
                     options={this.props.options}

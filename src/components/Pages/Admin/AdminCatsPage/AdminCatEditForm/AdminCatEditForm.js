@@ -18,14 +18,14 @@ import {BASE_URL} from "../../../../../const";
 
 class AdminCatEditForm extends Component {
 
-    templateDataSet(template, data){
-        for (let key in template){
-            if(typeof template[key] === "object" && template[key]){
+    templateDataSet(template, data) {
+        for (let key in template) {
+            if (typeof template[key] === "object" && template[key]) {
                 template[key] = this.templateDataSet(template[key], data[key]);
-            }else{
-                if(typeof data[key] === "object" && data[key]){
+            } else {
+                if (typeof data[key] === "object" && data[key]) {
                     template[key] = data[key].id;
-                }else{
+                } else {
                     template[key] = data[key];
                 }
             }
@@ -57,7 +57,7 @@ class AdminCatEditForm extends Component {
             title: null,
             cat_class: null
         };
-        if(this.props.cat){
+        if (this.props.cat) {
             vals = this.templateDataSet(vals, this.props.cat);
         }
         return (
@@ -88,18 +88,18 @@ class AdminCatEditForm extends Component {
                     cat_class: Yup.number().nullable(true)
                 })}
                 onSubmit={(values, {setSubmitting}) => {
-                    if(values.id){
-                        axios.post(BASE_URL+"/api/cat/"+this.props.cat.id+"/edit", values).then(()=>{
+                    if (values.id) {
+                        axios.post(BASE_URL + "/api/cat/" + this.props.cat.id + "/edit", values).then(() => {
                             this.props.handler(JSON.stringify(values));
                             alert("Котик отредактирован");
-                        }).catch(()=>{
+                        }).catch(() => {
                             alert("Не удалось создать котика");
                         });
-                    }else{
-                        axios.post(BASE_URL+"/api/cat/create", values).then(()=>{
+                    } else {
+                        axios.post(BASE_URL + "/api/cat/create", values).then(() => {
                             this.props.handler(JSON.stringify(values));
                             alert("Котик добавлен");
-                        }).catch(()=>{
+                        }).catch(() => {
                             alert("Не удалось создать котика");
                         });
                     }
@@ -112,95 +112,89 @@ class AdminCatEditForm extends Component {
                             name="name"
                             component={InputForField}
                             placeholder="Имя"/>
-                        <br/>
-                        <h4>Цвет</h4>
-                        <Field
-                            name="color.breed"
-                            component={BreedSelect}
-                            placeholder="Порода"/>
-                        <Field
-                            name="color.base_color"
-                            component={BaseColorSelect}
-                            placeholder="Основной цвет"/>
-                        <Field
-                            name="color.base_color_additional"
-                            component={BaseColorSelect}
-                            placeholder="Дополнительный цвет"/>
-                        <Field
-                            name="color.code0"
-                            params={{criteria:{code:{sign:"LIKE", value:"0%"}}}}
-                            component={ColorCodeSelect}
-                            placeholder="Код окраса начинающийся с 0"/>
-                        <Field
-                            name="color.code1"
-                            params={{criteria:{code:{sign:"LIKE", value:"1%"}}}}
-                            component={ColorCodeSelect}
-                            placeholder="Код окраса начинающийся с 1"/>
-                        <Field
-                            name="color.code2"
-                            params={{criteria:{code:{sign:"LIKE", value:"2%"}}}}
-                            component={ColorCodeSelect}
-                            placeholder="Код окраса начинающийся с 2"/>
-                        <Field
-                            name="color.code3"
-                            params={{criteria:{code:{sign:"LIKE", value:"3%"}}}}
-                            component={ColorCodeSelect}
-                            placeholder="Код окраса начинающийся с 3"/>
-                        <Field
-                            name="color.tail"
-                            params={{criteria:{code:{sign:"LIKE", value:"5%"}}}}
-                            component={ColorCodeSelect}
-                            placeholder="Код типа хвоста"/>
-                        <Field
-                            name="color.eyes"
-                            params={{criteria:{code:{sign:"LIKE", value:"6%"}}}}
-                            component={ColorCodeSelect}
-                            placeholder="Код цвета глаз"/>
-                        <Field
-                            name="color.ears"
-                            params={{criteria:{code:{sign:"LIKE", value:"7%"}}}}
-                            component={ColorCodeSelect}
-                            placeholder="Код типа ушей"/>
-                        <br/>
                         <Field
                             name="litter"
                             component={LitterSelect}
                             placeholder="Помет"/>
-                        <br/>
                         <Field
                             name="status"
                             component={StatusSelect}
                             placeholder="Статус"/>
-                        <br/>
                         <Field
                             name="community"
                             component={CommunitySelect}
                             placeholder="Питомник"/>
-                        <br/>
                         <Field
                             name="gender"
                             component={GenderSelect}
                             placeholder="Пол"/>
-                        <br/>
                         <Field
                             name="owner"
                             component={OwnerSelect}
                             placeholder="Хозяин"/>
-                        <br/>
                         <Field
                             name="title"
                             component={TitleSelect}
                             placeholder="Титул"/>
-                        <br/>
                         <Field
                             name="cat_class"
                             component={ClassSelect}
                             placeholder="Класс"/>
                         <br/>
+                        <div>
+                            <h4>Окрас</h4>
+                            <Field
+                                name="color.breed"
+                                component={BreedSelect}
+                                placeholder="Порода"/>
+                            <Field
+                                name="color.base_color"
+                                component={BaseColorSelect}
+                                placeholder="Основной цвет"/>
+                            <Field
+                                name="color.base_color_additional"
+                                component={BaseColorSelect}
+                                placeholder="Дополнительный цвет"/>
+                            <Field
+                                name="color.code0"
+                                params={{criteria: {code: {sign: "LIKE", value: "0%"}}}}
+                                component={ColorCodeSelect}
+                                placeholder="Код окраса начинающийся с 0"/>
+                            <Field
+                                name="color.code1"
+                                params={{criteria: {code: {sign: "LIKE", value: "1%"}}}}
+                                component={ColorCodeSelect}
+                                placeholder="Код окраса начинающийся с 1"/>
+                            <Field
+                                name="color.code2"
+                                params={{criteria: {code: {sign: "LIKE", value: "2%"}}}}
+                                component={ColorCodeSelect}
+                                placeholder="Код окраса начинающийся с 2"/>
+                            <Field
+                                name="color.code3"
+                                params={{criteria: {code: {sign: "LIKE", value: "3%"}}}}
+                                component={ColorCodeSelect}
+                                placeholder="Код окраса начинающийся с 3"/>
+                            <Field
+                                name="color.tail"
+                                params={{criteria: {code: {sign: "LIKE", value: "5%"}}}}
+                                component={ColorCodeSelect}
+                                placeholder="Код типа хвоста"/>
+                            <Field
+                                name="color.eyes"
+                                params={{criteria: {code: {sign: "LIKE", value: "6%"}}}}
+                                component={ColorCodeSelect}
+                                placeholder="Код цвета глаз"/>
+                            <Field
+                                name="color.ears"
+                                params={{criteria: {code: {sign: "LIKE", value: "7%"}}}}
+                                component={ColorCodeSelect}
+                                placeholder="Код типа ушей"/>
+                        </div>
                         <Button color={"green"}>
                             Отправить
                         </Button>
-                        <Button onClick={()=>{
+                        <Button onClick={() => {
                             this.props.reset();
                             setValues(vals);
                         }} type={"button"} color={"green"}>

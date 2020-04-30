@@ -4,6 +4,7 @@ import CatsList from "../../CatsPage/CatsList/CatsList";
 import AdminCatToolbar from "./AdminCatTollbar/AdminCatToolbar";
 import AdminCatEditForm from "./AdminCatEditForm/AdminCatEditForm";
 import TitleH2 from "../../../BaseElements/TitleH2/TitleH2";
+import AdminCatTable from "./AdminCatTable/AdminCatTable";
 
 class AdminCatsPage extends Component {
 
@@ -20,15 +21,15 @@ class AdminCatsPage extends Component {
             <AdminAbstractPage>
                 <TitleH2 text={"Кошки"}/>
                 <p>Здесь можно настроить список животных</p>
-                <AdminCatEditForm
-                    handler={(formState)=>{this.setState({formState:formState})}}
-                    reset={()=>{this.setState({editableCat:null})}}
-                    cat={this.state.editableCat}/>
-                <CatsList
+                {/*<AdminCatEditForm*/}
+                {/*    handler={(formState)=>{this.setState({formState:formState})}}*/}
+                {/*    reset={()=>{this.setState({editableCat:null})}}*/}
+                {/*    cat={this.state.editableCat}/>*/}
+                <AdminCatTable
                     formState={this.state.formState}
                     edit={(cat)=>{this.setState({editableCat:cat})}}
                     toolbar={AdminCatToolbar}
-                    countCatOnPage={15}/>
+                    countCatOnPage={30}/>
             </AdminAbstractPage>
         );
     }

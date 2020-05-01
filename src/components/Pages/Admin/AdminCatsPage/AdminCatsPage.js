@@ -6,6 +6,7 @@ import AdminCatTable from "./AdminCatTable/AdminCatTable";
 import Button from "../../../BaseElements/Button/Button";
 import "./AdminCatPage.css";
 import {ModalContext} from "../../../App/App";
+import AdminCatEditForm from "./AdminCatEditForm/AdminCatEditForm";
 
 class AdminCatsPage extends Component {
 
@@ -22,15 +23,10 @@ class AdminCatsPage extends Component {
             <AdminAbstractPage>
                 <TitleH2 text={"Кошки"}/>
                 <p>Здесь можно настроить список животных</p>
-                {/*<AdminCatEditForm*/}
-                {/*    handler={(formState)=>{this.setState({formState:formState})}}*/}
-                {/*    reset={()=>{this.setState({editableCat:null})}}*/}
-                {/*    cat={this.state.editableCat}/>*/}
-
                 <div className={"mb_20"}>
                     <ModalContext.Consumer>{
                         modal =>
-                            <Button onClick={()=>{modal.openModal("JOPA")}} color={"green"}>Добавить животное</Button>
+                            <Button onClick={()=>{modal.openModal(<AdminCatEditForm/>)}} color={"green"}>Добавить животное</Button>
                     }
                     </ModalContext.Consumer>
                 </div>

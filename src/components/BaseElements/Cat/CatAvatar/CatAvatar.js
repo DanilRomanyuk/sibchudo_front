@@ -4,12 +4,6 @@ import Img from 'react-image';
 import Loader from 'react-loader-spinner';
 import "./CatAvatar.css";
 
-export function openCatPage(id) {
-    if (id) {
-        document.location.href = "/cat/" + id;
-    }
-}
-
 class CatAvatar extends Component {
     render() {
         let destination = null;

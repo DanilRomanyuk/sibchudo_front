@@ -1,8 +1,27 @@
-body{
+body {
     margin: 0 !important;
 }
 
-.form{
+.form {
     width: 50%;
     margin: 20px auto;
+}
+
+.react-responsive-modal-overlay .react-responsive-modal-modal {
+    background: var(--green);
+    border-radius: 15px;
+    padding: 56px 56px 60px 56px;
+}
+
+.react-responsive-modal-overlay {
+    background: rgba(77, 77, 77, 0.53);
+    padding: 0;
+}
+
+.react-responsive-modal-closeButton {
+    border-radius: 50%;
+    margin: 7px 7px 0 0;
+    border: 1px solid #B9B9B9;
+    padding: 4px;
+    cursor: pointer;
 }

@@ -45,7 +45,6 @@ class CatPage extends Component {
     }
 
     render() {
-        let avatar;
         let cat;
         if (!this.state.cat) {
             cat = catTemplate;

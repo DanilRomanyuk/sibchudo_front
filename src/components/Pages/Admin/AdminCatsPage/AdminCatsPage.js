@@ -1,12 +1,11 @@
-    import React, {Component} from "react";
+import React, {Component} from "react";
 import AdminAbstractPage from "../AdminAbstractPage/AdminAbstractPage";
 import AdminCatToolbar from "./AdminCatTollbar/AdminCatToolbar";
-import AdminCatEditForm from "./AdminCatEditForm/AdminCatEditForm";
 import TitleH2 from "../../../BaseElements/TitleH2/TitleH2";
 import AdminCatTable from "./AdminCatTable/AdminCatTable";
 import Button from "../../../BaseElements/Button/Button";
 import "./AdminCatPage.css";
-    import {ModalContext} from "../../../App/App";
+import {ModalContext} from "../../../App/App";
 
 class AdminCatsPage extends Component {
 

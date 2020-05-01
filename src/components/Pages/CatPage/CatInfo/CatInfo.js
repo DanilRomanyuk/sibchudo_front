@@ -3,7 +3,6 @@ import CatColor from "../../../BaseElements/Cat/CatColor/CatColor";
 import CatAge from "../../../BaseElements/Cat/CatAge/CatAge";
 import CatGender from "../../../BaseElements/Cat/CatGender/CatGender";
 import Button from "../../../BaseElements/Button/Button";
-import {openLitter} from "../../../BaseElements/Litter/LitterPreview/LitterPreview";
 
 class CatInfo extends Component {
     render() {

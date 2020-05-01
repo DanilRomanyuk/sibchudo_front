@@ -1,8 +1,8 @@
-.cat_toolbar{
+.litter_toolbar{
     display: flex;
     justify-content: space-evenly;
 }
 
-.cat_toolbar > *{
+.litter_toolbar > *{
     cursor: pointer;
 }

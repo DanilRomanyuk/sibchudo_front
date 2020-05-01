@@ -1,7 +1,7 @@
-import React, {Component} from "react";
+import React, {Component} from 'react';
 import Moment from 'react-moment';
-import 'moment/locale/ru';
 import 'moment-timezone';
+import 'moment/locale/ru';
 
 class CatAge extends Component {
     render() {
@@ -10,7 +10,7 @@ class CatAge extends Component {
         }
         let age = null;
         if (!this.props.withoutAge) {
-            age = <>(<Moment fromNow ago date={this.props.birthday} locale="ru"/>)</>;
+            age = <>(<Moment fromNow ago date={this.props.birthday} locale={"ru"}/>)</>;
         }
         return (
             <span>

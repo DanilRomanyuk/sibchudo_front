@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import ReactPaginate from "react-paginate";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowLeft, faArrowRight} from "@fortawesome/free-solid-svg-icons";
+import {faArrowLeft, faArrowRight, faWrench} from "@fortawesome/free-solid-svg-icons";
 import Axios from "axios";
 import {BASE_URL} from "../../../../../const";
 import {Table, Tbody, Th, Thead, Tr} from "react-super-responsive-table";
@@ -62,7 +62,7 @@ class AdminLittersTable extends Component {
                             <Th>Отец</Th>
                             <Th>Мать</Th>
                             <Th>Котята</Th>
-                            <Th>Управление</Th>
+                            <Th><FontAwesomeIcon icon={faWrench}/></Th>
                             <Th/>
                         </Tr>
                     </Thead>
@@ -95,12 +95,15 @@ class AdminLittersTable extends Component {
     litterRow(litter) {
         return (
             <Tr key={litter.id}>
-                <a href={"/litter/"+litter.id} target={"_blank"}><CatTableCell>{litter.letter}</CatTableCell></a>
-                <CatTableCell><CatAge birthday={litter.birthday}/></CatTableCell>
-                <CatTableCell><CatName cat={litter.father}/></CatTableCell>
-                <CatTableCell><CatName cat={litter.mother}/></CatTableCell>
-                <CatTableCell>{litter.cats.length}</CatTableCell>
-                <CatTableCell><LitterToolbar litter={litter}/></CatTableCell>
+
+                <CatTableCell key={litter.id + "letter"}>
+                    <a rel="noopener noreferrer" href={"/litter/" + litter.id} target={"_blank"}>{litter.letter}</a>
+                </CatTableCell>
+                <CatTableCell key={litter.id + "birthday"}><CatAge birthday={litter.birthday}/></CatTableCell>
+                <CatTableCell key={litter.id + "father"}><CatName cat={litter.father}/></CatTableCell>
+                <CatTableCell key={litter.id + "mother"}><CatName cat={litter.mother}/></CatTableCell>
+                <CatTableCell key={litter.id + "cats"}>{litter.cats.length}</CatTableCell>
+                <CatTableCell key={litter.id + "toolbar"}><LitterToolbar litter={litter}/></CatTableCell>
             </Tr>
         );
     }

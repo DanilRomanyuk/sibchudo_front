@@ -20,10 +20,6 @@ import AdminLittersPage from "../Pages/Admin/AdminLittersPage/AdminLittersPage";
 
 
 class MainRouter extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <Router>

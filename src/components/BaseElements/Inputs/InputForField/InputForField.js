@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from "react";
-import {ErrorMessage, Field} from "formik";
+import {ErrorMessage} from "formik";
 import "./InputForField.css"
 
 class InputForField extends Component {

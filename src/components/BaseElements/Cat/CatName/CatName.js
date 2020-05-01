@@ -1,6 +1,6 @@
-import React, {Component, Fragment} from "react";
+import React, {Component} from "react";
 
-export function getCatFullName(cat, br = '') {
+export function getCatFullName(cat) {
     if(!cat){
         return ["..."];
     }

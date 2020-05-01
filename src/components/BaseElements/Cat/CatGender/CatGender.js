@@ -1,10 +1,10 @@
 import React, {Component} from "react";
-import {faVenus, faMars} from "@fortawesome/free-solid-svg-icons";
+import {faVenus, faMars, faVenusMars} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-class CatGender extends Component {
+class   CatGender extends Component {
     render() {
-        let gender = "Загрузка...";
+        let gender;
         let icon = ""
         switch (this.props.gender) {
             case 'male':
@@ -15,6 +15,9 @@ class CatGender extends Component {
                 icon = (this.props.icons) ? <FontAwesomeIcon icon={faVenus}/> : "";
                 gender = ' кошка';
                 break;
+            default:
+                icon = (this.props.icons) ? <FontAwesomeIcon icon={faVenusMars}/> : "";
+                gender = 'Неизвестен';
         }
 
         return <>{[icon, gender]}</>

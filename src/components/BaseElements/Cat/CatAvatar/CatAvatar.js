@@ -11,10 +11,6 @@ export function openCatPage(id) {
 }
 
 class CatAvatar extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         let destination = null;
         let id = this.props.cat ? this.props.cat.id : null;

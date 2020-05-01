@@ -13,7 +13,7 @@ class LitterToolbar extends Component {
 
     render() {
         return (
-            <div className={"cat_toolbar"}>
+            <div className={"litter_toolbar"}>
                 <div className={"color_green"} onClick={() => {}}><FontAwesomeIcon icon={faEdit}/></div>
                 <div onClick={this.deleteLitter} className={"color_red"}><FontAwesomeIcon icon={faTrash}/></div>
             </div>

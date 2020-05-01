@@ -1,12 +1,11 @@
 import React, {Component} from "react";
-import {Table, Thead, Tbody, Tr, Th, Td} from 'react-super-responsive-table'
+import {Table, Thead, Tbody, Tr, Th} from 'react-super-responsive-table'
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
 import CatTableCell from "./CatTableCell/CatTableCell";
 import Button from "../../Button/Button";
 import CatColor from "../CatColor/CatColor";
 import CatGender from "../CatGender/CatGender";
 import CatStatus from "../CatStatus/CatStatus";
-import {openCatPage} from "../CatAvatar/CatAvatar";
 
 class CatTable extends Component {
 

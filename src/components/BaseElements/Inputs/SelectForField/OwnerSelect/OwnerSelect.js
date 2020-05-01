@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import Axios from "axios";
-import {getCatFullName} from "../../../Cat/CatName/CatName";
 import SelectForField from "../SelectForField";
 import {BASE_URL} from "../../../../../const";
 

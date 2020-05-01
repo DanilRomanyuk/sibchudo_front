@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import ReactPaginate from "react-paginate";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowLeft, faArrowRight} from "@fortawesome/free-solid-svg-icons"
+import {faArrowLeft, faArrowRight, faWrench} from "@fortawesome/free-solid-svg-icons"
 import Axios from "axios";
 import {BASE_URL} from "../../../../../const";
 import {Table, Tbody, Th, Thead, Tr} from "react-super-responsive-table";
@@ -63,7 +63,7 @@ class AdminCatTable extends Component {
                             <Th>Дата рождения</Th>
                             <Th>Статус</Th>
                             <Th>Окрас</Th>
-                            <Th>Управление</Th>
+                            <Th><FontAwesomeIcon icon={faWrench}/></Th>
                             <Th/>
                         </Tr>
                     </Thead>
@@ -96,8 +96,9 @@ class AdminCatTable extends Component {
     catRow(cat) {
         return (
             <Tr key={cat.id}>
-                <a target={"_blank"} href={"/cat/" + cat.id}><CatTableCell
-                    key={cat.id + "name"}>{cat.name}</CatTableCell></a>
+                <CatTableCell key={cat.id + "name"}>
+                    <a target={"_blank"} rel="noopener noreferrer" href={"/cat/" + cat.id}>{cat.name}</a>
+                </CatTableCell>
                 <CatTableCell key={cat.id + "gender"}>
                     <CatGender gender={cat.gender} icons={true}/>
                 </CatTableCell>
@@ -110,7 +111,7 @@ class AdminCatTable extends Component {
                 <CatTableCell key={cat.id + "color"}>
                     <CatColor color={cat.color}/>
                 </CatTableCell>
-                <CatTableCell key={cat.id + "btn"}>
+                <CatTableCell key={cat.id + "toolbar"}>
                     <AdminCatToolbar cat={cat}/>
                 </CatTableCell>
             </Tr>

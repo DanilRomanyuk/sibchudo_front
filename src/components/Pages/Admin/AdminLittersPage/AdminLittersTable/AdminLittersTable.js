@@ -8,6 +8,7 @@ import {Table, Tbody, Th, Thead, Tr} from "react-super-responsive-table";
 import CatTableCell from "../../../../BaseElements/Cat/CatTable/CatTableCell/CatTableCell";
 import CatAge from "../../../../BaseElements/Cat/CatAge/CatAge";
 import CatName from "../../../../BaseElements/Cat/CatName/CatName";
+import LitterToolbar from "../LitterTollbar/LitterToolbar";
 
 class AdminLittersTable extends Component {
 
@@ -92,7 +93,6 @@ class AdminLittersTable extends Component {
     }
 
     litterRow(litter) {
-        console.log(litter)
         return (
             <Tr key={litter.id}>
                 <a href={"/litter/"+litter.id} target={"_blank"}><CatTableCell>{litter.letter}</CatTableCell></a>
@@ -100,7 +100,7 @@ class AdminLittersTable extends Component {
                 <CatTableCell><CatName cat={litter.father}/></CatTableCell>
                 <CatTableCell><CatName cat={litter.mother}/></CatTableCell>
                 <CatTableCell>{litter.cats.length}</CatTableCell>
-                <CatTableCell>buttons</CatTableCell>
+                <CatTableCell><LitterToolbar litter={litter}/></CatTableCell>
             </Tr>
         );
     }

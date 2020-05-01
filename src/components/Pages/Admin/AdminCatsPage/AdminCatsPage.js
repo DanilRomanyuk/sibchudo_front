@@ -31,7 +31,7 @@ class AdminCatsPage extends Component {
                 <div className={"mb_20"}>
                     <ModalContext.Consumer>{
                         modal =>
-                            <Button onClick={modal.openModal("JOPA")} color={"green"}>Добавить животное</Button>
+                            <Button onClick={()=>{modal.openModal("JOPA")}} color={"green"}>Добавить животное</Button>
                     }
                     </ModalContext.Consumer>
                 </div>

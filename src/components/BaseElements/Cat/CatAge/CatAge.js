@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Moment from 'react-moment';
+import 'moment/locale/ru';
 import 'moment-timezone';
 
 class CatAge extends Component {

@@ -13,15 +13,15 @@ import LitterPreview from "../../BaseElements/Litter/LitterPreview/LitterPreview
 import {BASE_URL} from "../../../const";
 
 const catTemplate = {
-    name: "Загрузка...",
-    gender: "Загрузка...",
+    name: "...",
+    gender: "...",
     avatar: {
         destination: ""
     },
     litter: {
         birthday: null,
         community: {
-            name: "Загрузка..."
+            name: "..."
         }
     }
 };

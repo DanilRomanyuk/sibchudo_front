@@ -5,7 +5,7 @@ import CatName from "../../Cat/CatName/CatName";
 class LitterName extends Component {
     render() {
         if(!this.props.litter.id){
-            return "Загрузка..."
+            return "..."
         }else {
             console.log(this.props.litter);
             return (

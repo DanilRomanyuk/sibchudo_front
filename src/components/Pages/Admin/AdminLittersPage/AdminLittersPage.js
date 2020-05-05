@@ -13,7 +13,7 @@ class AdminLittersPage extends Component{
                 <div className={"mb_20"}>
                     <Button color={"green"}>Добавить помет</Button>
                 </div>
-                <AdminLittersTable countLitterOnPage={10}/>
+                <AdminLittersTable countLitterOnPage={20}/>
             </AdminAbstractPage>
         );
     }

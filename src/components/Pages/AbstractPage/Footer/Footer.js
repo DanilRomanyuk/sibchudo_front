@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import './Footer.css';
-import Link from "../../../BaseElements/Link/Link";
+import CatLink from "../../../BaseElements/Link/CatLink";
 
 const PHONE = "+7(921)376-28-67";
 const EMAIL = "verliokamaskarad@mail.ru";
@@ -11,22 +11,22 @@ class Footer extends Component {
             <div className={'footer'}>
                 <div>
                     <div>
-                        <Link url={"tel:" + PHONE}>{PHONE}</Link>
+                        <CatLink url={"tel:" + PHONE} ext>{PHONE}</CatLink>
                     </div>
                     <div>Санкт-Петербург</div>
                     <div>
-                        <Link url={"mailto:" + EMAIL}>{EMAIL}</Link>
+                        <CatLink url={"mailto:" + EMAIL} ext>{EMAIL}</CatLink>
                     </div>
                 </div>
                 <div>
                     <div>
-                        <Link url={"/about"}>О питомнике</Link>
+                        <CatLink url={"/about"}>О питомнике</CatLink>
                     </div>
                     <div>
-                        <Link url={"/cats"}>Наши кошки</Link>
+                        <CatLink url={"/cats"}>Наши кошки</CatLink>
                     </div>
                     <div>
-                        <Link url={"/kittens"}>Наши котята</Link>
+                        <CatLink url={"/kittens"}>Наши котята</CatLink>
                     </div>
                 </div>
                 <div>

@@ -3,6 +3,9 @@
     padding: 0 20%;
     color: white;
 }
+.footer a{
+    color: white;
+}
 
 .footer > div {
     display: flex;

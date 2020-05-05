@@ -11,7 +11,7 @@ import {BASE_URL} from "../../../const";
 
 const litterTemplate = {
     id: null,
-    letter: "Загрузка...",
+    letter: "...",
     mother: null,
     father: null,
     birthday: null,

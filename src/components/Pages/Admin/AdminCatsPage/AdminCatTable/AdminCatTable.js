@@ -12,6 +12,7 @@ import CatColor from "../../../../BaseElements/Cat/CatColor/CatColor";
 import AdminCatToolbar from "../AdminCatTollbar/AdminCatToolbar";
 import "./AdminCatTable.css";
 import CatAge from "../../../../BaseElements/Cat/CatAge/CatAge";
+import CatLink from "../../../../BaseElements/Link/CatLink";
 
 class AdminCatTable extends Component {
 
@@ -97,7 +98,7 @@ class AdminCatTable extends Component {
         return (
             <Tr key={cat.id}>
                 <CatTableCell key={cat.id + "name"}>
-                    <a target={"_blank"} rel="noopener noreferrer" href={"/cat/" + cat.id}>{cat.name}</a>
+                    <CatLink url={"/cat/" + cat.id} target={"_blank"}>{cat.name}</CatLink>
                 </CatTableCell>
                 <CatTableCell key={cat.id + "gender"}>
                     <CatGender gender={cat.gender} icons={true}/>

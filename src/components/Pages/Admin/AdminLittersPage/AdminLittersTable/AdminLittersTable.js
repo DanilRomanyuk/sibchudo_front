@@ -9,6 +9,7 @@ import CatTableCell from "../../../../BaseElements/Cat/CatTable/CatTableCell/Cat
 import CatAge from "../../../../BaseElements/Cat/CatAge/CatAge";
 import CatName from "../../../../BaseElements/Cat/CatName/CatName";
 import LitterToolbar from "../LitterTollbar/LitterToolbar";
+import CatLink from "../../../../BaseElements/Link/CatLink";
 
 class AdminLittersTable extends Component {
 
@@ -95,9 +96,8 @@ class AdminLittersTable extends Component {
     litterRow(litter) {
         return (
             <Tr key={litter.id}>
-
                 <CatTableCell key={litter.id + "letter"}>
-                    <a rel="noopener noreferrer" href={"/litter/" + litter.id} target={"_blank"}>{litter.letter}</a>
+                    <CatLink url={"/litter/" + litter.id} target={"_blank"}>{litter.letter}</CatLink>
                 </CatTableCell>
                 <CatTableCell key={litter.id + "birthday"}><CatAge birthday={litter.birthday}/></CatTableCell>
                 <CatTableCell key={litter.id + "father"}><CatName cat={litter.father}/></CatTableCell>

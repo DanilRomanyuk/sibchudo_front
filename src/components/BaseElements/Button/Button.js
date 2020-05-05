@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import './Button.css';
+import CatLink from "../Link/CatLink";
 
 class Button extends Component {
     render() {
@@ -7,7 +8,7 @@ class Button extends Component {
         let type = this.props.type ? this.props.type : "submit";
         let btn = <button type={type} className={classes} onClick={this.props.onClick}>{this.props.children}</button>;
         if (this.props.href) {
-            btn = <a href={this.props.href}>{btn}</a>
+            btn = <CatLink url={this.props.href}>{btn}</CatLink>
         }
         return (btn);
     }

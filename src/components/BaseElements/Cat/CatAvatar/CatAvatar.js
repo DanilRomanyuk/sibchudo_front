@@ -3,6 +3,7 @@ import defaultCatImage from "./assets/default-cat.png";
 import Img from 'react-image';
 import Loader from 'react-loader-spinner';
 import "./CatAvatar.css";
+import CatLink from "../../Link/CatLink";
 
 class CatAvatar extends Component {
     render() {
@@ -25,7 +26,7 @@ class CatAvatar extends Component {
                 />
             </div>;
         if(this.props.clickable && this.props.cat){
-            avatar = <a href={"/cat/"+id}>{avatar}</a>
+            avatar = <CatLink url={"/cat/"+id}>{avatar}</CatLink>
         }
         return (avatar);
     }

@@ -6,7 +6,7 @@ import 'moment/locale/ru';
 class CatAge extends Component {
     render() {
         if (this.props.birthday === null) {
-            return "Загрузка...";
+            return "...";
         }
         let age = null;
         if (!this.props.withoutAge) {

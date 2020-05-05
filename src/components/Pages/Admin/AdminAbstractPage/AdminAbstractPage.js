@@ -14,6 +14,7 @@ class AdminAbstractPage extends Component {
                         <MenuItem url={'/admin/main'} content={'Главная'}/>
                         <MenuItem url={'/admin/cats'} content={'Кошки'}/>
                         <MenuItem url={'/admin/litters'} content={'Пометы'}/>
+                        <MenuItem url={'/'} content={'Вернуться на сайт'}/>
                     </div>
                 </div>
                 <div className={'content'}>{this.props.children}</div>

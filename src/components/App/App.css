@@ -2,10 +2,6 @@ body {
     margin: 0 !important;
 }
 
-.form {
-    width: 100%;
-    margin: 20px auto;
-}
 
 .react-responsive-modal-overlay .react-responsive-modal-modal {
     background: var(--green);

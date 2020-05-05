@@ -15,6 +15,7 @@ import TitleSelect from "../../../../BaseElements/Inputs/SelectForField/TitleSel
 import ClassSelect from "../../../../BaseElements/Inputs/SelectForField/ClassSelect/ClassSelect";
 import Button from "../../../../BaseElements/Button/Button";
 import {BASE_URL} from "../../../../../const";
+import "./AdminCatEditForm.css";
 
 class AdminCatEditForm extends Component {
 
@@ -191,15 +192,7 @@ class AdminCatEditForm extends Component {
                                 component={ColorCodeSelect}
                                 placeholder="Код типа ушей"/>
                         </div>
-                        <Button color={"green"}>
-                            Отправить
-                        </Button>
-                        <Button onClick={() => {
-                            this.props.reset();
-                            setValues(vals);
-                        }} type={"button"} color={"green"}>
-                            reset
-                        </Button>
+                        <Button color={"white"}>Сохранить</Button>
                     </form>
 
                 )}

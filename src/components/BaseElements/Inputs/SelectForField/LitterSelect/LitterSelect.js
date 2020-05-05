@@ -18,7 +18,7 @@ class LitterSelect extends Component {
     }
 
     loadOptions(){
-        Axios.post(BASE_URL+'/api/litter/get').then((response) =>{
+        Axios.post(BASE_URL+'/api/litter/get',{order:{birthday:"desc"}}).then((response) =>{
             this.setState({
                 options: response.data.map((litter)=>{
                     let label = "Помет(" + litter.letter + ") ";

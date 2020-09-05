@@ -7,7 +7,7 @@ class TitleSelect extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            options: []
+            options: null
         }
     }
 
@@ -15,11 +15,11 @@ class TitleSelect extends Component {
         this.loadOptions();
     }
 
-    loadOptions(){
-        Axios.post(BASE_URL+'/api/title/get').then((response) =>{
+    loadOptions() {
+        Axios.post(BASE_URL + '/api/title/get').then((response) => {
             this.setState({
-                options: response.data.map((title)=>{
-                    return {value:title.id, label: title.name_ru}
+                options: response.data.map((title) => {
+                    return {value: title.id, label: title.name_ru}
                 })
             });
         });

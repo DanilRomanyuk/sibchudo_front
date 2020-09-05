@@ -8,7 +8,7 @@ class GenderSelect extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            options: []
+            options: null
         }
     }
 

@@ -62,23 +62,4 @@ export const ModalContext = React.createContext({
     }
 });
 
-const modalStyle = {
-    // overlay: {
-    //     'background': 'rgba(77,77,77,0.53)',
-    //     'padding': '0'
-    // },
-    // modal: {
-    //     // 'background': 'var(--green)',
-    //     // 'borderRadius': '15px',
-    //     // 'padding': '56px 56px 60px 56px'
-    // },
-    closeButton: {
-        'borderRadius': '50%',
-        'margin': '7px 7px 0 0',
-        'border': '1px solid #B9B9B9',
-        'padding': '4px',
-        'cursor': 'pointer',
-    }
-};
-
 export default App;

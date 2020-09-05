@@ -13,32 +13,32 @@ class AdminCatsPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            editableCat: null,
             formState: null
         };
     }
 
     render() {
         return (
-            <AdminAbstractPage>
-                <TitleH2 text={"Кошки"}/>
-                <p>Здесь можно настроить список животных</p>
-                <div className={"mb_20"}>
-                    <ModalContext.Consumer>{
-                        modal =>
-                            <Button onClick={()=>{modal.openModal(<AdminCatEditForm/>)}} color={"green"}>Добавить животное</Button>
-                    }
-                    </ModalContext.Consumer>
-                </div>
+            <ModalContext.Consumer>{
+                modal => <AdminAbstractPage>
+                    <TitleH2 text={"Кошки"}/>
+                    <p>Здесь можно настроить список животных</p>
+                    <div className={"mb_20"}>
+                        <Button onClick={() => {
+                            modal.openModal(<AdminCatEditForm/>)
+                        }} color={"green"}>Добавить животное</Button>
+                    </div>
 
-                <AdminCatTable
-                    formState={this.state.formState}
-                    edit={(cat) => {
-                        this.setState({editableCat: cat})
-                    }}
-                    toolbar={AdminCatToolbar}
-                    countCatOnPage={30}/>
-            </AdminAbstractPage>
+                    <AdminCatTable
+                        formState={this.state.formState}
+                        openEditModal={(cat) => {
+                            modal.openModal(<AdminCatEditForm cat={cat}/>)
+                        }}
+                        toolbar={AdminCatToolbar}
+                        countCatOnPage={30}/>
+                </AdminAbstractPage>
+            }
+            </ModalContext.Consumer>
         );
     }
 }

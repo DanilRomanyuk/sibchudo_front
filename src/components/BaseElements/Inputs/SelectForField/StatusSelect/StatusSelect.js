@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import SelectForField from "../SelectForField";
 import Axios from "axios";
-import {getCatFullName} from "../../../Cat/CatName/CatName";
 import {BASE_URL} from "../../../../../const";
 
 class StatusSelect extends Component {

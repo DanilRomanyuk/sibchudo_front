@@ -26,8 +26,7 @@ class AdminCatToolbar extends Component {
                     }
                 }} ref={"avatarLoader"} hidden={true} type={"file"}/>
                 <div className={"color_green"} onClick={() => {
-                    window.scrollTo(window.pageXOffset, 0);
-                    this.props.edit(this.props.cat);
+                    this.props.openEditModal(this.props.cat);
                 }}><FontAwesomeIcon icon={faEdit}/></div>
                 <div className={"color_blue"} onClick={() => {
                     this.refs.avatarLoader.click()

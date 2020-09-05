@@ -15,7 +15,7 @@ class LitterToolbar extends Component {
         return (
             <div className={"litter_toolbar"}>
                 <div className={"color_green"} onClick={() => {
-                    this.props.openEditModal(this.props.cat);
+                    this.props.openEditModal(this.props.litter);
                 }}><FontAwesomeIcon icon={faEdit}/></div>
                 <div onClick={this.deleteLitter} className={"color_red"}><FontAwesomeIcon icon={faTrash}/></div>
             </div>

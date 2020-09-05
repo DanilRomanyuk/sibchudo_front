@@ -4,6 +4,9 @@ import {Field, Formik} from "formik";
 import InputForField from "../../../../BaseElements/Inputs/InputForField/InputForField";
 import Button from "../../../../BaseElements/Button/Button";
 import {BASE_URL} from "../../../../../const";
+import * as Yup from "yup";
+import CommunitySelect from "../../../../BaseElements/Inputs/SelectForField/CommunitySelect/CommunitySelect";
+import LetterSelect from "../../../../BaseElements/Inputs/SelectForField/LetterSelect/LetterSelect";
 
 class LitterEditForm extends Component {
 
@@ -25,45 +28,30 @@ class LitterEditForm extends Component {
     render() {
         let values = {
             id: null,
-            name: '',
-            color: {
-                breed: null,
-                base_color: null,
-                base_color_additional: null,
-                code0: null,
-                code1: null,
-                code2: null,
-                code3: null,
-                tail: null,
-                eyes: null,
-                ears: null,
-            },
-            litter: null,
-            status: "",
+            birthday: null,
+            cats: [],
             community: null,
-            gender: null,
-            owner: null,
-            title: null,
-            cat_class: null
+            father: null,
+            letter: null,
+            mother: null
         };
         if (this.props.litter) {
+            console.log(this.props.litter);
             values = this.templateDataSet(values, this.props.litter);
         }
         return (
             <Formik
                 enableReinitialize={true}
                 initialValues={values}
-                // validationSchema={Yup.object().shape({
-                //     id: Yup.number().nullable(true),
-                //     name: Yup.string().required(),
-                //     litter: Yup.number().required(),
-                //     status: Yup.string().required(),
-                //     community: Yup.number().nullable(true),
-                //     gender: Yup.string().required(),
-                //     owner: Yup.number().nullable(true),
-                //     title: Yup.number().nullable(true),
-                //     cat_class: Yup.number().nullable(true)
-                // })}
+                validationSchema={
+                    Yup.object().shape({
+                        id: Yup.number().nullable(true),
+                        birthday: Yup.date().required(),
+                        community: Yup.number().nullable(true),
+                        father: Yup.number().required(),
+                        mother: Yup.number().nullable(true),
+                        letter: Yup.string().nullable(true),
+                    })}
                 onSubmit={(values, {setSubmitting}) => {
                     if (values.id) {
                         axios.post(BASE_URL + "/api/litter/" + this.props.cat.id + "/edit", values).then(() => {
@@ -73,7 +61,7 @@ class LitterEditForm extends Component {
                     } else {
                         axios.post(BASE_URL + "/api/litter/create", values).then(() => {
                             this.props.handler(JSON.stringify(values));
-                             alert("Помет создан");
+                            alert("Помет создан");
                         })
                     }
                 }}
@@ -83,7 +71,7 @@ class LitterEditForm extends Component {
                         <h3>Форма создания или обновления помета</h3>
                         <Field
                             name="letter"
-                            component={InputForField}
+                            component={LetterSelect}
                             placeholder="Буква"/>
                         <Field
                             name="birthday"
@@ -99,7 +87,7 @@ class LitterEditForm extends Component {
                             placeholder="Отец"/>
                         <Field
                             name="community"
-                            component={InputForField}
+                            component={CommunitySelect}
                             placeholder="Питомник"/>
                         <br/>
                         <Button color={"white"}>Сохранить</Button>

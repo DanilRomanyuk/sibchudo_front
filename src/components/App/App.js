@@ -19,7 +19,6 @@ class App extends Component {
     }
 
     openModal(content, classes = "") {
-        console.log(this.state.isOpenModal);
         this.setState({
            modalContent: content,
            isOpenModal: true

@@ -103,7 +103,9 @@ class AdminLittersTable extends Component {
                 <CatTableCell key={litter.id + "father"}><CatName cat={litter.father}/></CatTableCell>
                 <CatTableCell key={litter.id + "mother"}><CatName cat={litter.mother}/></CatTableCell>
                 <CatTableCell key={litter.id + "cats"}>{litter.cats.length}</CatTableCell>
-                <CatTableCell key={litter.id + "toolbar"}><LitterToolbar litter={litter}/></CatTableCell>
+                <CatTableCell key={litter.id + "toolbar"}>
+                    <LitterToolbar litter={litter} openEditModal={this.props.openEditModal}/>
+                </CatTableCell>
             </Tr>
         );
     }

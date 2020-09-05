@@ -23,7 +23,7 @@ class LitterEditForm extends Component {
     }
 
     render() {
-        let vals = {
+        let values = {
             id: null,
             name: '',
             color: {
@@ -46,13 +46,13 @@ class LitterEditForm extends Component {
             title: null,
             cat_class: null
         };
-        if (this.props.cat) {
-            vals = this.templateDataSet(vals, this.props.cat);
+        if (this.props.litter) {
+            values = this.templateDataSet(values, this.props.litter);
         }
         return (
             <Formik
                 enableReinitialize={true}
-                initialValues={vals}
+                initialValues={values}
                 // validationSchema={Yup.object().shape({
                 //     id: Yup.number().nullable(true),
                 //     name: Yup.string().required(),

@@ -16,11 +16,11 @@ class StatusSelect extends Component {
         this.loadOptions();
     }
 
-    loadOptions(){
-        Axios.post(BASE_URL+'/api/cat/statuses/get').then((response) =>{
+    loadOptions() {
+        Axios.post(BASE_URL + '/api/cat/statuses/get').then((response) => {
             this.setState({
-                options: response.data.map((status)=>{
-                    return {value:status.id, label: status.name_ru}
+                options: response.data.map((status) => {
+                    return {value: status.id, label: status.name_ru}
                 })
             });
         });

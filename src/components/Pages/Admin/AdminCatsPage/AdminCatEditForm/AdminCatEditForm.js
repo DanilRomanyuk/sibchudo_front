@@ -35,7 +35,7 @@ class AdminCatEditForm extends Component {
     }
 
     render() {
-        let vals = {
+        let values = {
             id: null,
             name: '',
             color: {
@@ -59,12 +59,13 @@ class AdminCatEditForm extends Component {
             cat_class: null
         };
         if (this.props.cat) {
-            vals = this.templateDataSet(vals, this.props.cat);
+            console.log(values,this.props.cat);
+            values = this.templateDataSet(values, this.props.cat);
         }
         return (
             <Formik
                 enableReinitialize={true}
-                initialValues={vals}
+                initialValues={values}
                 validationSchema={Yup.object().shape({
                     id: Yup.number().nullable(true),
                     name: Yup.string().required(),

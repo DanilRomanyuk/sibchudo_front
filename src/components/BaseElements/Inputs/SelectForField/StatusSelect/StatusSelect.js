@@ -20,7 +20,7 @@ class StatusSelect extends Component {
         Axios.post(BASE_URL+'/api/cat/statuses/get').then((response) =>{
             this.setState({
                 options: response.data.map((status)=>{
-                    return {value:status.value, label: status.name_ru}
+                    return {value:status.id, label: status.name_ru}
                 })
             });
         });

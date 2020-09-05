@@ -4,7 +4,7 @@ import Axios from "axios";
 import {getCatFullName} from "../../../Cat/CatName/CatName";
 import {BASE_URL} from "../../../../../const";
 
-class AxiosSelect extends Component {
+class CatSelect extends Component {
 
     constructor(props) {
         super(props);
@@ -18,9 +18,11 @@ class AxiosSelect extends Component {
     }
 
     loadOptions() {
-        Axios.post(BASE_URL + this.props.url).then((response) => {
+        Axios.post(BASE_URL + '/api/cat/get').then((response) => {
             this.setState({
-                options: this.props.handler
+                options: response.data.map((cat) => {
+                    return {value: cat.id, label: getCatFullName(cat).join(" ")}
+                })
             });
         });
     }
@@ -34,4 +36,4 @@ class AxiosSelect extends Component {
     }
 }
 
-export default AxiosSelect;
+export default CatSelect;

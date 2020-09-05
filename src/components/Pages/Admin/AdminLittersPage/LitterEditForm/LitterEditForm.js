@@ -8,6 +8,7 @@ import * as Yup from "yup";
 import CommunitySelect from "../../../../BaseElements/Inputs/SelectForField/CommunitySelect/CommunitySelect";
 import LetterSelect from "../../../../BaseElements/Inputs/SelectForField/LetterSelect/LetterSelect";
 import DateField from "../../../../BaseElements/Inputs/DateField/DateField";
+import CatSelect from "../../../../BaseElements/Inputs/SelectForField/CatSelect/CatSelect";
 
 class LitterEditForm extends Component {
 
@@ -80,11 +81,11 @@ class LitterEditForm extends Component {
                             placeholder="Дата рождения"/>
                         <Field
                             name="mother"
-                            component={InputForField}
+                            component={CatSelect}
                             placeholder="Мать"/>
                         <Field
                             name="father"
-                            component={InputForField}
+                            component={CatSelect}
                             placeholder="Отец"/>
                         <Field
                             name="community"

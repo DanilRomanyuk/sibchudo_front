@@ -25,8 +25,8 @@ class CatAvatar extends Component {
                     }
                 />
             </div>;
-        if(this.props.clickable && this.props.cat){
-            avatar = <CatLink url={"/cat/"+id}>{avatar}</CatLink>
+        if (this.props.clickable && this.props.cat) {
+            avatar = <CatLink url={"/cat/" + id}>{avatar}</CatLink>
         }
         return (avatar);
     }

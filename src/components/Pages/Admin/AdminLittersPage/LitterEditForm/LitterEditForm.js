@@ -7,6 +7,7 @@ import {BASE_URL} from "../../../../../const";
 import * as Yup from "yup";
 import CommunitySelect from "../../../../BaseElements/Inputs/SelectForField/CommunitySelect/CommunitySelect";
 import LetterSelect from "../../../../BaseElements/Inputs/SelectForField/LetterSelect/LetterSelect";
+import DateField from "../../../../BaseElements/Inputs/DateField/DateField";
 
 class LitterEditForm extends Component {
 
@@ -48,9 +49,9 @@ class LitterEditForm extends Component {
                         id: Yup.number().nullable(true),
                         birthday: Yup.date().required(),
                         community: Yup.number().nullable(true),
-                        father: Yup.number().required(),
+                        father: Yup.number().nullable(true),
                         mother: Yup.number().nullable(true),
-                        letter: Yup.string().nullable(true),
+                        letter: Yup.string().required(),
                     })}
                 onSubmit={(values, {setSubmitting}) => {
                     if (values.id) {
@@ -75,7 +76,7 @@ class LitterEditForm extends Component {
                             placeholder="Буква"/>
                         <Field
                             name="birthday"
-                            component={InputForField}
+                            component={DateField}
                             placeholder="Дата рождения"/>
                         <Field
                             name="mother"

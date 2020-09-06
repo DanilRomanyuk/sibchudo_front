@@ -22,5 +22,8 @@ export const API = {
     },
     SET_AVATAR: function (catId, mediaId) {
         return BASE_URL + '/api/cat/' + catId + '/media/' + mediaId;
+    },
+    MEDIA: function (mediaId) {
+        return BASE_URL + '/api/media/' + mediaId
     }
 }

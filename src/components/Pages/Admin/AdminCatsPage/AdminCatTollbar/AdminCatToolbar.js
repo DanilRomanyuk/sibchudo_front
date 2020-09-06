@@ -24,7 +24,7 @@ class AdminCatToolbar extends Component {
                     {
                         modal => <div className={"color_blue"} onClick={() => {
                             modal.openModal(<MediaEditorForm type={"cats"}
-                                                             cat={this.props.cat}/>
+                                                             catId={this.props.cat.id}/>
                             );
                         }}><FontAwesomeIcon icon={faImage}/></div>
                     }

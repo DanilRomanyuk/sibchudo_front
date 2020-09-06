@@ -26,9 +26,11 @@ class CatsList extends Component {
                     pages: Math.ceil(response.data / self.props.countCatOnPage)
                 });
                 Axios.get(API.CAT(), {
-                    limit: self.props.countCatOnPage,
-                    offset: self.state.offset,
-                    order: {name: "asc"}
+                    params: {
+                        limit: self.props.countCatOnPage,
+                        offset: self.state.offset,
+                        order: {name: "asc"}
+                    }
                 }).then(
                     function (cats) {
                         self.setState({cats: cats.data});

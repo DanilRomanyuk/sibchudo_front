@@ -18,15 +18,17 @@ class LittersList extends Component {
 
     loadLitters() {
         let self = this;
-        Axios.post(API.LITTER('count'), {}).then(
+        Axios.get(API.LITTER('count'), {}).then(
             function (response) {
                 self.setState({
                     pages: Math.ceil(response.data / self.props.countOnPage)
                 });
-                Axios.post(API.LITTER(), {
-                    order: {birthday: "desc"},
-                    limit: self.props.countOnPage,
-                    offset: self.state.offset
+                Axios.get(API.LITTER(), {
+                    params: {
+                        order: {birthday: "desc"},
+                        limit: self.props.countOnPage,
+                        offset: self.state.offset
+                    }
                 }).then(
                     function (litters) {
                         self.setState({litters: litters.data});

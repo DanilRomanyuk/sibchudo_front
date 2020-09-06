@@ -31,9 +31,11 @@ class AdminLittersTable extends Component {
                     pages: Math.ceil(response.data / self.props.countLitterOnPage)
                 });
                 Axios.get(API.LITTER(), {
-                    limit: self.props.countLitterOnPage,
-                    offset: self.state.offset,
-                    order: {birthday: "desc"}
+                    params: {
+                        limit: self.props.countLitterOnPage,
+                        offset: self.state.offset,
+                        order: {birthday: "desc"}
+                    }
                 }).then(
                     function (litters) {
                         let data = litters.data

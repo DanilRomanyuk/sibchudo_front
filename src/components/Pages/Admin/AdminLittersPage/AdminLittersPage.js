@@ -6,6 +6,10 @@ import AdminLittersTable from "./AdminLittersTable/AdminLittersTable";
 import {ModalContext} from "../../../App/App";
 import LitterEditForm from "./LitterEditForm/LitterEditForm";
 
+export let litterUpdater = () => {};
+export let setLitterUpdater = (newLitterUpdater) => {
+    litterUpdater = newLitterUpdater;
+}
 class AdminLittersPage extends Component {
     render() {
         return (

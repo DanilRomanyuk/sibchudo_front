@@ -10,6 +10,7 @@ import CatAge from "../../../../BaseElements/Cat/CatAge/CatAge";
 import CatName from "../../../../BaseElements/Cat/CatName/CatName";
 import LitterToolbar from "../LitterTollbar/LitterToolbar";
 import CatLink from "../../../../BaseElements/Link/CatLink";
+import {setLitterUpdater} from "../AdminLittersPage";
 
 class AdminLittersTable extends Component {
 
@@ -21,6 +22,7 @@ class AdminLittersTable extends Component {
             litters: []
         };
         this.loadLitters = this.loadLitters.bind(this);
+        setLitterUpdater(this.loadLitters)
     }
 
     loadLitters() {

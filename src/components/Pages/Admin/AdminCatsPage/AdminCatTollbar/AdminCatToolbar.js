@@ -4,6 +4,7 @@ import {faEdit, faImage, faTrash} from "@fortawesome/free-solid-svg-icons";
 import Axios from 'axios';
 import {API} from "../../../../../const";
 import "./AdminCatToolbar.css";
+import {catUpdater} from "../AdminCatsPage";
 
 class AdminCatToolbar extends Component {
     constructor(props) {
@@ -42,7 +43,7 @@ class AdminCatToolbar extends Component {
         if (conf) {
             Axios.delete(API.CAT(this.props.cat.id))
                 .then(res => { // then print response status
-                    this.props.handler();
+                    catUpdater();
                 })
         }
     }

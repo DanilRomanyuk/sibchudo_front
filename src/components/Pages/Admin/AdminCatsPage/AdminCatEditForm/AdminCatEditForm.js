@@ -159,37 +159,37 @@ class AdminCatEditForm extends Component {
                                 placeholder="Дополнительный цвет"/>
                             <Field
                                 name="color.code0"
-                                params={{criteria: {code: {sign: "LIKE", value: "0%"}}}}
+                                params={{custom: {firstNumber: 0}}}
                                 component={ColorCodeSelect}
                                 placeholder="Код окраса начинающийся с 0"/>
                             <Field
                                 name="color.code1"
-                                params={{criteria: {code: {sign: "LIKE", value: "1%"}}}}
+                                params={{custom: {firstNumber: 1}}}
                                 component={ColorCodeSelect}
                                 placeholder="Код окраса начинающийся с 1"/>
                             <Field
                                 name="color.code2"
-                                params={{criteria: {code: {sign: "LIKE", value: "2%"}}}}
+                                params={{custom: {firstNumber: 2}}}
                                 component={ColorCodeSelect}
                                 placeholder="Код окраса начинающийся с 2"/>
                             <Field
                                 name="color.code3"
-                                params={{criteria: {code: {sign: "LIKE", value: "3%"}}}}
+                                params={{custom: {firstNumber: 3}}}
                                 component={ColorCodeSelect}
                                 placeholder="Код окраса начинающийся с 3"/>
                             <Field
                                 name="color.tail"
-                                params={{criteria: {code: {sign: "LIKE", value: "5%"}}}}
+                                params={{custom: {firstNumber: 5}}}
                                 component={ColorCodeSelect}
                                 placeholder="Код типа хвоста"/>
                             <Field
                                 name="color.eyes"
-                                params={{criteria: {code: {sign: "LIKE", value: "6%"}}}}
+                                params={{custom: {firstNumber: 6}}}
                                 component={ColorCodeSelect}
                                 placeholder="Код цвета глаз"/>
                             <Field
                                 name="color.ears"
-                                params={{criteria: {code: {sign: "LIKE", value: "7%"}}}}
+                                params={{custom: {firstNumber: 7}}}
                                 component={ColorCodeSelect}
                                 placeholder="Код типа ушей"/>
                         </div>

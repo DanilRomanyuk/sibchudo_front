@@ -79,10 +79,22 @@ class LitterEditForm extends Component {
                             placeholder="Дата рождения"/>
                         <Field
                             name="mother"
+                            params={{
+                                criteria: {
+                                    gender: 'female'
+                                },
+                                order: {name: 'asc'}
+                            }}
                             component={CatSelect}
                             placeholder="Мать"/>
                         <Field
                             name="father"
+                            params={{
+                                criteria: {
+                                    gender: 'male'
+                                },
+                                order: {name: 'asc'}
+                            }}
                             component={CatSelect}
                             placeholder="Отец"/>
                         <Field

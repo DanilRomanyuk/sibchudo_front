@@ -18,7 +18,10 @@ class CatSelect extends Component {
     }
 
     loadOptions() {
-        Axios.get(API.CAT()).then((response) => {
+        let params = this.props.params ? this.props.params : {};
+        Axios.get(API.CAT(), {
+            params: params
+        }).then((response) => {
             this.setState({
                 options: response.data.map((cat) => {
                     return {value: cat.id, label: getCatFullName(cat).join(" ")}

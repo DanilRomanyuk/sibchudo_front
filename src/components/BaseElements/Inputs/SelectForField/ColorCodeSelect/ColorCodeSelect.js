@@ -17,7 +17,7 @@ class ColorCodeSelect extends Component {
 
     loadOptions() {
         let params = this.props.params ? this.props.params : {};
-        Axios.get(API.COLOR_CODE, params).then((response) => {
+        Axios.get(API.COLOR_CODE, {params: params}).then((response) => {
             this.setState({
                 options: response.data.map((colorCode) => {
                     return {value: colorCode.id, label: colorCode.nameRU + " (" + colorCode.code + ")"}

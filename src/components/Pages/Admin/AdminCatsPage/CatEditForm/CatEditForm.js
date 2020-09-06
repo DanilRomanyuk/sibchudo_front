@@ -40,8 +40,8 @@ class CatEditForm extends Component {
             name: '',
             color: {
                 breed: null,
-                base_color: null,
-                base_color_additional: null,
+                baseColor: null,
+                baseColorAdditional: null,
                 code0: null,
                 code1: null,
                 code2: null,
@@ -56,11 +56,11 @@ class CatEditForm extends Component {
             gender: null,
             owner: null,
             title: null,
-            cat_class: null
+            catClass: null
         };
         if (this.props.cat) {
-            console.log(values,this.props.cat);
             values = this.templateDataSet(values, this.props.cat);
+            console.log(this.props.cat,values);
         }
         return (
             <Formik
@@ -71,8 +71,8 @@ class CatEditForm extends Component {
                     name: Yup.string().required(),
                     color: Yup.object().shape({
                         breed: Yup.number().required(),
-                        base_color: Yup.number().required(),
-                        base_color_additional: Yup.number().nullable(true),
+                        baseColor: Yup.number().required(),
+                        baseColorAdditional: Yup.number().nullable(true),
                         code0: Yup.number().nullable(true),
                         code1: Yup.number().nullable(true),
                         code2: Yup.number().nullable(true),
@@ -87,18 +87,18 @@ class CatEditForm extends Component {
                     gender: Yup.string().required(),
                     owner: Yup.number().nullable(true),
                     title: Yup.number().nullable(true),
-                    cat_class: Yup.number().nullable(true)
+                    catClass: Yup.number().nullable(true)
                 })}
                 onSubmit={(values, {setSubmitting}) => {
                     if (values.id) {
-                        Axios.put(API.CAT(this.props.cat.id), values).then(() => {
+                        Axios.put(API.CAT(values.id), values).then(() => {
                             this.props.handler(JSON.stringify(values));
                             alert("Котик отредактирован");
                         }).catch(() => {
                             alert("Не удалось создать котика");
                         });
                     } else {
-                        Axios.post(API.CAT(this.props.cat.id), values).then(() => {
+                        Axios.post(API.CAT(), values).then(() => {
                             this.props.handler(JSON.stringify(values));
                             alert("Котик добавлен");
                         }).catch(() => {
@@ -139,7 +139,7 @@ class CatEditForm extends Component {
                             component={TitleSelect}
                             placeholder="Титул"/>
                         <Field
-                            name="cat_class"
+                            name="catClass"
                             component={ClassSelect}
                             placeholder="Класс"/>
                         <br/>
@@ -150,11 +150,11 @@ class CatEditForm extends Component {
                                 component={BreedSelect}
                                 placeholder="Порода"/>
                             <Field
-                                name="color.base_color"
+                                name="color.baseColor"
                                 component={BaseColorSelect}
                                 placeholder="Основной цвет"/>
                             <Field
-                                name="color.base_color_additional"
+                                name="color.baseColorAdditional"
                                 component={BaseColorSelect}
                                 placeholder="Дополнительный цвет"/>
                             <Field

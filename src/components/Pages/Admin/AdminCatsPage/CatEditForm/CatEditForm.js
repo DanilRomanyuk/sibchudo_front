@@ -68,7 +68,7 @@ class CatEditForm extends Component {
                 initialValues={values}
                 validationSchema={Yup.object().shape({
                     id: Yup.number().nullable(true),
-                    name: Yup.string().required(),
+                    name: Yup.string("jija").required(),
                     color: Yup.object().shape({
                         breed: Yup.number().required(),
                         baseColor: Yup.number().required(),

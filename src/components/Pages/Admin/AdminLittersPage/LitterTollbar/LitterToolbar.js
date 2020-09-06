@@ -4,6 +4,7 @@ import {faEdit, faTrash} from "@fortawesome/free-solid-svg-icons";
 import Axios from 'axios';
 import {API} from "../../../../../const";
 import "./LitterToolbar.css";
+import {litterUpdater} from "../AdminLittersPage";
 
 class LitterToolbar extends Component {
     constructor(props) {
@@ -29,7 +30,7 @@ class LitterToolbar extends Component {
         if (conf) {
             Axios.delete(API.LITTER(this.props.litter.id))
                 .then(res => {
-                    this.props.handler();
+                    litterUpdater();
                 })
         }
     }

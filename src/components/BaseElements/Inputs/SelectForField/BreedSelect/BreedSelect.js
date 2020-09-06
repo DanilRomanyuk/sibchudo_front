@@ -19,7 +19,7 @@ class BreedSelect extends Component {
         Axios.get(API.BREED).then((response) => {
             this.setState({
                 options: response.data.map((breed) => {
-                    return {value: breed.id, label: breed.name_ru}
+                    return {value: breed.id, label: breed.nameRU}
                 })
             });
         });

@@ -19,7 +19,7 @@ class ClassSelect extends Component {
         Axios.get(API.CLASS).then((response) => {
             this.setState({
                 options: response.data.map((catClass) => {
-                    return {value: catClass.id, label: catClass.name_ru}
+                    return {value: catClass.id, label: catClass.nameRU}
                 })
             });
         });

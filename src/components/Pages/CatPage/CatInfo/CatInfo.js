@@ -13,7 +13,7 @@ class CatInfo extends Component {
         let community = this.props.cat.community ? this.props.cat.community.name : this.props.cat.litter.community.name;
         let title = '';
         if(this.props.cat.title){
-            title = <p>Титул: {this.props.cat.title.name_ru}</p>
+            title = <p>Титул: {this.props.cat.title.nameRU}</p>
         }
         return (
             <div>

@@ -19,7 +19,7 @@ class BaseColorSelect extends Component {
         Axios.get(API.BASE_COLOR).then((response) => {
             this.setState({
                 options: response.data.map((baseColor) => {
-                    return {value: baseColor.id, label: baseColor.name_ru + " (" + baseColor.code + ")"}
+                    return {value: baseColor.id, label: baseColor.nameRU + " (" + baseColor.code + ")"}
                 })
             });
         });

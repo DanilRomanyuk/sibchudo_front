@@ -16,10 +16,10 @@ class TitleSelect extends Component {
     }
 
     loadOptions() {
-        Axios.post(API.TITLE).then((response) => {
+        Axios.get(API.TITLE).then((response) => {
             this.setState({
                 options: response.data.map((title) => {
-                    return {value: title.id, label: title.name_ru}
+                    return {value: title.id, label: title.nameRU}
                 })
             });
         });

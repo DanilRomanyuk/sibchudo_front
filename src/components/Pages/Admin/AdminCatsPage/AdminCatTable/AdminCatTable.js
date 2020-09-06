@@ -27,12 +27,12 @@ class AdminCatTable extends Component {
 
     loadCats() {
         let self = this;
-        Axios.post(API.CAT("count")).then(
+        Axios.get(API.CAT("count")).then(
             function (response) {
                 self.setState({
                     pages: Math.ceil(response.data / self.props.countCatOnPage)
                 });
-                Axios.post(API.CAT(), {
+                Axios.get(API.CAT(), {
                     limit: self.props.countCatOnPage,
                     offset: self.state.offset,
                     order: {name: "asc"}

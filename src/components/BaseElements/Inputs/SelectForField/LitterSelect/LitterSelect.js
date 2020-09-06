@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import SelectForField from "../SelectForField";
 import Axios from "axios";
 import {getCatFullName} from "../../../Cat/CatName/CatName";
-import {BASE_URL} from "../../../../../const";
+import {API} from "../../../../../const";
 
 class LitterSelect extends Component {
 
@@ -17,15 +17,15 @@ class LitterSelect extends Component {
         this.loadOptions();
     }
 
-    loadOptions(){
-        Axios.post(BASE_URL+'/api/litter/get',{order:{birthday:"desc"}}).then((response) =>{
+    loadOptions() {
+        Axios.get(API.LITTER(), {params: {order: {birthday: "desc"}}}).then((response) => {
             this.setState({
-                options: response.data.map((litter)=>{
+                options: response.data.map((litter) => {
                     let label = "Помет(" + litter.letter + ") ";
                     label += (new Date(litter.birthday)).toLocaleDateString("ru");
                     label += " " + (litter.mother ? getCatFullName(litter.mother).join(" ") : "");
                     label += " " + (litter.father ? getCatFullName(litter.father).join(" ") : "");
-                    return {value:litter.id, label: label}
+                    return {value: litter.id, label: label}
                 })
             });
         });

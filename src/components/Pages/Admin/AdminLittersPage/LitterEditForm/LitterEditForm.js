@@ -1,9 +1,8 @@
 import React, {Component} from "react";
-import axios from "axios";
+import Axios from "axios";
 import {Field, Formik} from "formik";
-import InputForField from "../../../../BaseElements/Inputs/InputForField/InputForField";
 import Button from "../../../../BaseElements/Button/Button";
-import {BASE_URL} from "../../../../../const";
+import {API} from "../../../../../const";
 import * as Yup from "yup";
 import CommunitySelect from "../../../../BaseElements/Inputs/SelectForField/CommunitySelect/CommunitySelect";
 import LetterSelect from "../../../../BaseElements/Inputs/SelectForField/LetterSelect/LetterSelect";
@@ -38,7 +37,6 @@ class LitterEditForm extends Component {
             mother: null
         };
         if (this.props.litter) {
-            console.log(this.props.litter);
             values = this.templateDataSet(values, this.props.litter);
         }
         return (
@@ -56,12 +54,12 @@ class LitterEditForm extends Component {
                     })}
                 onSubmit={(values, {setSubmitting}) => {
                     if (values.id) {
-                        axios.post(BASE_URL + "/api/litter/" + this.props.cat.id + "/edit", values).then(() => {
+                        Axios.post(API.LITTER(this.props.litter.id), values).then(() => {
                             this.props.handler(JSON.stringify(values));
                             alert("Помет изменен");
                         })
                     } else {
-                        axios.post(BASE_URL + "/api/litter/create", values).then(() => {
+                        Axios.post(API.LITTER(), values).then(() => {
                             this.props.handler(JSON.stringify(values));
                             alert("Помет создан");
                         })

@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import {ErrorMessage, Field, Formik} from "formik";
 import * as Yup from "yup";
-import axios from "axios";
-import {BASE_URL} from "../../../../const";
+import Axios from "axios";
+import {API} from "../../../../const";
 import AbstractPage from "../../AbstractPage/AbstractPage";
 import "./AdminAuthPage.css";
 import Button from "../../../BaseElements/Button/Button";
@@ -25,7 +25,7 @@ class AdminAuthPage extends Component {
                         password: Yup.string().required()
                     })}
                     onSubmit={(values, {setSubmitting}) => {
-                        axios.post(BASE_URL + "/api/login/check", values).then((result) => {
+                        Axios.post(API.LOGIN, values).then((result) => {
                             document.location.href = "/admin/main";
                         }).catch((error) => {
                             this.setState({error:"Не удалось войти"})

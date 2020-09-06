@@ -5,7 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowLeft, faArrowRight} from "@fortawesome/free-solid-svg-icons"
 import Axios from "axios";
 import "./CatsList.css";
-import {BASE_URL} from "../../../../const";
+import {API} from "../../../../const";
 
 class CatsList extends Component {
 
@@ -20,12 +20,12 @@ class CatsList extends Component {
 
     loadCats() {
         let self = this;
-        Axios.post(BASE_URL + "/api/cat/count").then(
+        Axios.get(API.CAT('count')).then(
             function (response) {
                 self.setState({
                     pages: Math.ceil(response.data / self.props.countCatOnPage)
                 });
-                Axios.post(BASE_URL+"/api/cat/get", {
+                Axios.get(API.CAT(), {
                     limit: self.props.countCatOnPage,
                     offset: self.state.offset,
                     order: {name: "asc"}

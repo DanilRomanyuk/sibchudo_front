@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import AbstractPage from "../AbstractPage/AbstractPage";
-import axios from "axios";
+import Axios from "axios";
 import TitleH2 from "../../BaseElements/TitleH2/TitleH2";
 import "./CatPage.css";
 import Img from 'react-image';
@@ -10,7 +10,7 @@ import CatInfo from "./CatInfo/CatInfo";
 import CatName from "../../BaseElements/Cat/CatName/CatName";
 import CatAvatar from "../../BaseElements/Cat/CatAvatar/CatAvatar";
 import LitterPreview from "../../BaseElements/Litter/LitterPreview/LitterPreview";
-import {BASE_URL} from "../../../const";
+import {API} from "../../../const";
 
 const catTemplate = {
     name: "...",
@@ -78,7 +78,7 @@ class CatPage extends Component {
 
     loadCat() {
         let self = this;
-        axios.post(BASE_URL + "/api/cat/" + this.props.match.params.id + "/get").then(function (result) {
+        Axios.get(API.CAT(this.props.match.params.id)).then(function (result) {
             if (result.data != null) {
                 self.setState({cat: result.data});
             } else {

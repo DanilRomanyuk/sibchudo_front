@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import * as Yup from "yup";
-import axios from "axios";
+import Axios from "axios";
 import {Field, Formik} from "formik";
 import InputForField from "../../../../BaseElements/Inputs/InputForField/InputForField";
 import BreedSelect from "../../../../BaseElements/Inputs/SelectForField/BreedSelect/BreedSelect";
@@ -14,7 +14,7 @@ import OwnerSelect from "../../../../BaseElements/Inputs/SelectForField/OwnerSel
 import TitleSelect from "../../../../BaseElements/Inputs/SelectForField/TitleSelect/TitleSelect";
 import ClassSelect from "../../../../BaseElements/Inputs/SelectForField/ClassSelect/ClassSelect";
 import Button from "../../../../BaseElements/Button/Button";
-import {BASE_URL} from "../../../../../const";
+import {API} from "../../../../../const";
 import "./AdminCatEditForm.css";
 
 class AdminCatEditForm extends Component {
@@ -91,14 +91,14 @@ class AdminCatEditForm extends Component {
                 })}
                 onSubmit={(values, {setSubmitting}) => {
                     if (values.id) {
-                        axios.post(BASE_URL + "/api/cat/" + this.props.cat.id + "/edit", values).then(() => {
+                        Axios.put(API.CAT(this.props.cat.id), values).then(() => {
                             this.props.handler(JSON.stringify(values));
                             alert("Котик отредактирован");
                         }).catch(() => {
                             alert("Не удалось создать котика");
                         });
                     } else {
-                        axios.post(BASE_URL + "/api/cat/create", values).then(() => {
+                        Axios.post(API.CAT(this.props.cat.id), values).then(() => {
                             this.props.handler(JSON.stringify(values));
                             alert("Котик добавлен");
                         }).catch(() => {

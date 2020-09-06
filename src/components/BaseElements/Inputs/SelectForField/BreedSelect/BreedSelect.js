@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import Axios from "axios";
 import SelectForField from "../SelectForField";
-import {BASE_URL} from "../../../../../const";
+import {API} from "../../../../../const";
 
 class BreedSelect extends Component {
     constructor(props) {
@@ -15,11 +15,11 @@ class BreedSelect extends Component {
         this.loadOptions();
     }
 
-    loadOptions(){
-        Axios.post(BASE_URL+'/api/breed/get').then((response) =>{
+    loadOptions() {
+        Axios.get(API.BREED).then((response) => {
             this.setState({
-                options: response.data.map((breed)=>{
-                    return {value:breed.id, label: breed.name_ru}
+                options: response.data.map((breed) => {
+                    return {value: breed.id, label: breed.name_ru}
                 })
             });
         });

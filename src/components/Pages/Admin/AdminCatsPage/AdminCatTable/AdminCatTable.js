@@ -3,7 +3,7 @@ import ReactPaginate from "react-paginate";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowLeft, faArrowRight, faWrench} from "@fortawesome/free-solid-svg-icons"
 import Axios from "axios";
-import {BASE_URL} from "../../../../../const";
+import {API} from "../../../../../const";
 import {Table, Tbody, Th, Thead, Tr} from "react-super-responsive-table";
 import CatTableCell from "../../../../BaseElements/Cat/CatTable/CatTableCell/CatTableCell";
 import CatGender from "../../../../BaseElements/Cat/CatGender/CatGender";
@@ -27,12 +27,12 @@ class AdminCatTable extends Component {
 
     loadCats() {
         let self = this;
-        Axios.post(BASE_URL + "/api/cat/count").then(
+        Axios.post(API.CAT("count")).then(
             function (response) {
                 self.setState({
                     pages: Math.ceil(response.data / self.props.countCatOnPage)
                 });
-                Axios.post(BASE_URL + "/api/cat/get", {
+                Axios.post(API.CAT(), {
                     limit: self.props.countCatOnPage,
                     offset: self.state.offset,
                     order: {name: "asc"}

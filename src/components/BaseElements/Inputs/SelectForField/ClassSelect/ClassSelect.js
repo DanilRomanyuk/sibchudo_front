@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import Axios from "axios";
 import SelectForField from "../SelectForField";
-import {BASE_URL} from "../../../../../const";
+import {API} from "../../../../../const";
 
 class ClassSelect extends Component {
     constructor(props) {
@@ -16,7 +16,7 @@ class ClassSelect extends Component {
     }
 
     loadOptions() {
-        Axios.post(BASE_URL + '/api/class/get').then((response) => {
+        Axios.get(API.CLASS).then((response) => {
             this.setState({
                 options: response.data.map((catClass) => {
                     return {value: catClass.id, label: catClass.name_ru}

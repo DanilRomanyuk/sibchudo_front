@@ -1,12 +1,12 @@
 import React, {Component} from "react";
 import AbstractPage from "../AbstractPage/AbstractPage";
-import axios from "axios";
+import Axios from "axios";
 import TitleH2 from "../../BaseElements/TitleH2/TitleH2";
 import "./LitterPage.css";
 import LitterName from "../../BaseElements/Litter/LiiterName/LitterName";
 import CatPreview from "../../BaseElements/Cat/CatPreview/CatPreview";
 import CatTable from "../../BaseElements/Cat/CatTable/CatTable";
-import {BASE_URL} from "../../../const";
+import {API} from "../../../const";
 
 
 const litterTemplate = {
@@ -65,10 +65,19 @@ class LitterPage extends Component {
 
     loadLitter() {
         let self = this;
-        axios.post(BASE_URL + "/api/litter/" + this.props.match.params.id + "/get").then(function (result) {
+        Axios.get(API.LITTER(this.props.match.params.id)).then(function (result) {
             if (result.data != null) {
                 self.setState({litter: result.data});
-                axios.post(BASE_URL+"/api/cat/get", {criteria: {litter: {sign: "=", value: result.data.id}}}).then(
+                Axios.get(API.CAT(), {
+                    params: {
+                        criteria: {
+                            litter: {
+                                sign: "=",
+                                value: result.data.id
+                            }
+                        }
+                    }
+                }).then(
                     function (kittensData) {
                         self.setState({kittens: kittensData.data});
                     }

@@ -3,7 +3,7 @@ import Axios from "axios";
 import CatPreview from "../../../BaseElements/Cat/CatPreview/CatPreview";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {Carousel} from 'react-responsive-carousel';
-import {BASE_URL} from "../../../../const";
+import {API} from "../../../../const";
 import "./CatSlider.css";
 
 class CatSlider extends Component {
@@ -14,7 +14,7 @@ class CatSlider extends Component {
 
     loadCats() {
         let self = this;
-        Axios.post(BASE_URL + "/api/cat/get", {limit: 5}).then(
+        Axios.post(API.CAT(), {limit: 5}).then(
             function (data) {
                 self.setState({cats: data.data});
                 console.log(self.state);
@@ -30,8 +30,9 @@ class CatSlider extends Component {
         return (
             <div>
                 <Carousel className={""}
-                    showThumbs={false}>
-                    {this.state.cats.map(cat => <div className={"cat_slider_block"}><CatPreview key={cat.id} cat={cat}/></div>)}
+                          showThumbs={false}>
+                    {this.state.cats.map(cat => <div className={"cat_slider_block"}><CatPreview key={cat.id} cat={cat}/>
+                    </div>)}
                 </Carousel>
             </div>
         );

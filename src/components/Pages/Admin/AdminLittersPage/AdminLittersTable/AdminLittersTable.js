@@ -3,7 +3,7 @@ import ReactPaginate from "react-paginate";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowLeft, faArrowRight, faWrench} from "@fortawesome/free-solid-svg-icons";
 import Axios from "axios";
-import {BASE_URL} from "../../../../../const";
+import {API} from "../../../../../const";
 import {Table, Tbody, Th, Thead, Tr} from "react-super-responsive-table";
 import CatTableCell from "../../../../BaseElements/Cat/CatTable/CatTableCell/CatTableCell";
 import CatAge from "../../../../BaseElements/Cat/CatAge/CatAge";
@@ -25,12 +25,12 @@ class AdminLittersTable extends Component {
 
     loadLitters() {
         let self = this;
-        Axios.post(BASE_URL + "/api/litter/count").then(
+        Axios.get(API.LITTER('count')).then(
             function (response) {
                 self.setState({
                     pages: Math.ceil(response.data / self.props.countLitterOnPage)
                 });
-                Axios.post(BASE_URL + "/api/litter/get", {
+                Axios.get(API.LITTER(), {
                     limit: self.props.countLitterOnPage,
                     offset: self.state.offset,
                     order: {birthday: "desc"}

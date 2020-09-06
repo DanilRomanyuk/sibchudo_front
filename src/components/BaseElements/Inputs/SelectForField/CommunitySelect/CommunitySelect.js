@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import Axios from "axios";
 import SelectForField from "../SelectForField";
-import {BASE_URL} from "../../../../../const";
+import {API} from "../../../../../const";
 
 
 class CommunitySelect extends Component {
@@ -17,7 +17,7 @@ class CommunitySelect extends Component {
     }
 
     loadOptions(){
-        Axios.post(BASE_URL+'/api/community/get').then((response) =>{
+        Axios.get(API.COMMUNITY).then((response) =>{
             this.setState({
                 options: response.data.map((community)=>{
                     return {value:community.id, label: community.name}

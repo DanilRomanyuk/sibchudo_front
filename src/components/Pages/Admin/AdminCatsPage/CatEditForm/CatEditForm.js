@@ -60,7 +60,6 @@ class CatEditForm extends Component {
         };
         if (this.props.cat) {
             values = this.templateDataSet(values, this.props.cat);
-            console.log(this.props.cat,values);
         }
         return (
             <Formik
@@ -92,17 +91,19 @@ class CatEditForm extends Component {
                 onSubmit={(values, {setSubmitting}) => {
                     if (values.id) {
                         Axios.put(API.CAT(values.id), values).then(() => {
-                            this.props.handler(JSON.stringify(values));
+                            this.props.modal.closeModal();
                             alert("Котик отредактирован");
-                        }).catch(() => {
-                            alert("Не удалось создать котика");
+                        }).catch((e) => {
+                            console.log(e);
+                            alert("Произошла ошибка при обновлении");
                         });
                     } else {
                         Axios.post(API.CAT(), values).then(() => {
-                            this.props.handler(JSON.stringify(values));
+                            this.props.modal.closeModal();
                             alert("Котик добавлен");
-                        }).catch(() => {
-                            alert("Не удалось создать котика");
+                        }).catch((e) => {
+                            console.log(e);
+                            alert("Произошла ошибка при создании");
                         });
                     }
                 }}

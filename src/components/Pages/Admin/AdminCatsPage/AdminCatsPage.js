@@ -25,14 +25,14 @@ class AdminCatsPage extends Component {
                     <p>Здесь можно настроить список животных</p>
                     <div className={"mb_20"}>
                         <Button onClick={() => {
-                            modal.openModal(<CatEditForm/>)
+                            modal.openModal(<CatEditForm modal={modal}/>)
                         }} color={"green"}>Добавить животное</Button>
                     </div>
 
                     <AdminCatTable
                         formState={this.state.formState}
                         openEditModal={(cat) => {
-                            modal.openModal(<CatEditForm cat={cat}/>)
+                            modal.openModal(<CatEditForm cat={cat} modal={modal}/>)
                         }}
                         toolbar={AdminCatToolbar}
                         countCatOnPage={30}/>

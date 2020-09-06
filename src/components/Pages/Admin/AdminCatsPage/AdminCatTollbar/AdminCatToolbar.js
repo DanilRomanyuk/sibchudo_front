@@ -5,6 +5,8 @@ import Axios from 'axios';
 import {API} from "../../../../../const";
 import "./AdminCatToolbar.css";
 import {catUpdater} from "../AdminCatsPage";
+import {ModalContext} from "../../../../App/App";
+import MediaEditorForm from "../../MediaEditorForm/MediaEditorForm";
 
 class AdminCatToolbar extends Component {
     constructor(props) {
@@ -15,23 +17,18 @@ class AdminCatToolbar extends Component {
     render() {
         return (
             <div className={"cat_toolbar"}>
-                <input onChange={(event) => {
-                    let files = event.target.files;
-                    if (files.length === 1) {
-                        let data = new FormData();
-                        data.append('avatar', files[0]);
-                        Axios.post(API.CAT_AVATAR(this.props.cat.id), data)
-                            .then(res => { // then print response status
-                                this.props.handler();
-                            })
-                    }
-                }} ref={"avatarLoader"} hidden={true} type={"file"}/>
                 <div className={"color_green"} onClick={() => {
                     this.props.openEditModal(this.props.cat);
                 }}><FontAwesomeIcon icon={faEdit}/></div>
-                <div className={"color_blue"} onClick={() => {
-                    this.refs.avatarLoader.click()
-                }}><FontAwesomeIcon icon={faImage}/></div>
+                <ModalContext.Consumer>
+                    {
+                        modal => <div className={"color_blue"} onClick={() => {
+                            modal.openModal(<MediaEditorForm type={"cats"}
+                                                             cat={this.props.cat}/>
+                            );
+                        }}><FontAwesomeIcon icon={faImage}/></div>
+                    }
+                </ModalContext.Consumer>
                 <div onClick={this.deleteCat} className={"color_red"}><FontAwesomeIcon icon={faTrash}/></div>
             </div>
         );

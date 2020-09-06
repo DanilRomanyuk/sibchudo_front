@@ -1,0 +1,24 @@
+.media_control {
+    margin-bottom: 30px;
+}
+
+.cat_media {
+    width: 400px;
+    margin-bottom: 30px;
+    display: flex;
+}
+
+.cat_media > img {
+    width: 100%;
+    height: auto;
+}
+
+.cat_media .toolbar {
+    text-align: center;
+    padding: 5px;
+}
+
+.cat_media .toolbar > * {
+    margin-bottom: 10px;
+    cursor: pointer;
+}

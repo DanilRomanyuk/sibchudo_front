@@ -17,7 +17,10 @@ export const API = {
     STATUS: BASE_URL + '/api/status',
     OWNER: BASE_URL + '/api/owner',
     COMMUNITY: BASE_URL + '/api/community',
-    CAT_AVATAR: function (catId) {
-        return BASE_URL + '/api/cat/' + catId + '/avatar'
+    CAT_MEDIA: function (catId) {
+        return BASE_URL + '/api/cat/' + catId + '/media';
+    },
+    SET_AVATAR: function (catId, mediaId) {
+        return BASE_URL + '/api/cat/' + catId + '/media/' + mediaId;
     }
 }

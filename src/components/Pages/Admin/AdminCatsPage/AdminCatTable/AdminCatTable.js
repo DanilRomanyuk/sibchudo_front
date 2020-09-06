@@ -118,7 +118,7 @@ class AdminCatTable extends Component {
                     <CatColor color={cat.color}/>
                 </CatTableCell>
                 <CatTableCell key={cat.id + "toolbar"}>
-                    <AdminCatToolbar cat={cat} openEditModal={this.props.openEditModal}/>
+                    <AdminCatToolbar cat={cat} openEditModal={this.props.openEditModal} />
                 </CatTableCell>
             </Tr>
         );

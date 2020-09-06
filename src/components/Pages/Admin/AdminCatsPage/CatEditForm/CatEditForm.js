@@ -15,9 +15,9 @@ import TitleSelect from "../../../../BaseElements/Inputs/SelectForField/TitleSel
 import ClassSelect from "../../../../BaseElements/Inputs/SelectForField/ClassSelect/ClassSelect";
 import Button from "../../../../BaseElements/Button/Button";
 import {API} from "../../../../../const";
-import "./AdminCatEditForm.css";
+import "./CatEditForm.css";
 
-class AdminCatEditForm extends Component {
+class CatEditForm extends Component {
 
     templateDataSet(template, data) {
         for (let key in template) {
@@ -202,4 +202,4 @@ class AdminCatEditForm extends Component {
     }
 }
 
-export default AdminCatEditForm;
+export default CatEditForm;

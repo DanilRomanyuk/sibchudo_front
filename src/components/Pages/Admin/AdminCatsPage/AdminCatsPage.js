@@ -8,6 +8,11 @@ import "./AdminCatPage.css";
 import {ModalContext} from "../../../App/App";
 import CatEditForm from "./CatEditForm/CatEditForm";
 
+export let catUpdater = () => {};
+export let setCatUpdater = (newCatUpdater) => {
+    catUpdater = newCatUpdater;
+}
+
 class AdminCatsPage extends Component {
 
     constructor(props) {

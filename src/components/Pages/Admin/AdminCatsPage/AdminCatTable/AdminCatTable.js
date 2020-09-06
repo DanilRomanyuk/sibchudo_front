@@ -13,6 +13,7 @@ import AdminCatToolbar from "../AdminCatTollbar/AdminCatToolbar";
 import "./AdminCatTable.css";
 import CatAge from "../../../../BaseElements/Cat/CatAge/CatAge";
 import CatLink from "../../../../BaseElements/Link/CatLink";
+import {setCatUpdater} from "../AdminCatsPage";
 
 class AdminCatTable extends Component {
 
@@ -23,6 +24,8 @@ class AdminCatTable extends Component {
             offset: 0,
             cats: []
         };
+        this.loadCats = this.loadCats.bind(this);
+        setCatUpdater(this.loadCats);
     }
 
     loadCats() {

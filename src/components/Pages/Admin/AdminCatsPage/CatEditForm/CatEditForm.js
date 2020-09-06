@@ -16,6 +16,7 @@ import ClassSelect from "../../../../BaseElements/Inputs/SelectForField/ClassSel
 import Button from "../../../../BaseElements/Button/Button";
 import {API} from "../../../../../const";
 import "./CatEditForm.css";
+import {catUpdater} from "../AdminCatsPage";
 
 class CatEditForm extends Component {
 
@@ -91,16 +92,16 @@ class CatEditForm extends Component {
                 onSubmit={(values, {setSubmitting}) => {
                     if (values.id) {
                         Axios.put(API.CAT(values.id), values).then(() => {
+                            catUpdater();
                             this.props.modal.closeModal();
-                            alert("Котик отредактирован");
                         }).catch((e) => {
                             console.log(e);
                             alert("Произошла ошибка при обновлении");
                         });
                     } else {
                         Axios.post(API.CAT(), values).then(() => {
+                            catUpdater();
                             this.props.modal.closeModal();
-                            alert("Котик добавлен");
                         }).catch((e) => {
                             console.log(e);
                             alert("Произошла ошибка при создании");

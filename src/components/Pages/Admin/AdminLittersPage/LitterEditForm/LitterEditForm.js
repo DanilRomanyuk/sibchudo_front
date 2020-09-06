@@ -8,6 +8,7 @@ import CommunitySelect from "../../../../BaseElements/Inputs/SelectForField/Comm
 import LetterSelect from "../../../../BaseElements/Inputs/SelectForField/LetterSelect/LetterSelect";
 import DateField from "../../../../BaseElements/Inputs/DateField/DateField";
 import CatSelect from "../../../../BaseElements/Inputs/SelectForField/CatSelect/CatSelect";
+import {litterUpdater} from "../AdminLittersPage";
 
 class LitterEditForm extends Component {
 
@@ -47,7 +48,7 @@ class LitterEditForm extends Component {
                     Yup.object().shape({
                         id: Yup.number().nullable(true),
                         birthday: Yup.date().required(),
-                        community: Yup.number().nullable(true),
+                        community: Yup.number().required(),
                         father: Yup.number().nullable(true),
                         mother: Yup.number().nullable(true),
                         letter: Yup.string().required(),
@@ -55,14 +56,20 @@ class LitterEditForm extends Component {
                 onSubmit={(values, {setSubmitting}) => {
                     if (values.id) {
                         Axios.put(API.LITTER(this.props.litter.id), values).then(() => {
-                            this.props.handler(JSON.stringify(values));
-                            alert("Помет изменен");
-                        })
+                            litterUpdater();
+                            this.props.modal.closeModal();
+                        }).catch((e) => {
+                            console.log(e);
+                            alert("Произошла ошибка при обновлении");
+                        });
                     } else {
                         Axios.post(API.LITTER(), values).then(() => {
-                            this.props.handler(JSON.stringify(values));
-                            alert("Помет создан");
-                        })
+                            litterUpdater();
+                            this.props.modal.closeModal();
+                        }).catch((e) => {
+                            console.log(e);
+                            alert("Произошла ошибка при создании");
+                        });
                     }
                 }}
             >

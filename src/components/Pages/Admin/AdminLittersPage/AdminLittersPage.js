@@ -18,11 +18,11 @@ class AdminLittersPage extends Component {
                     <TitleH2 text={"Пометы"}/>
                     <p>Здесь можно настроить список пометов</p>
                     <div className={"mb_20"}>
-                        <Button color={"green"} onClick={() => modal.openModal(<LitterEditForm/>)}>Добавить
+                        <Button color={"green"} onClick={() => modal.openModal(<LitterEditForm modal={modal}/>)}>Добавить
                             помет</Button>
                     </div>
                     <AdminLittersTable countLitterOnPage={20} openEditModal={(litter) => {
-                        modal.openModal(<LitterEditForm litter={litter}/>)
+                        modal.openModal(<LitterEditForm litter={litter} modal={modal}/>)
                     }}/>
                 </AdminAbstractPage>
             }

@@ -54,7 +54,7 @@ class LitterEditForm extends Component {
                     })}
                 onSubmit={(values, {setSubmitting}) => {
                     if (values.id) {
-                        Axios.post(API.LITTER(this.props.litter.id), values).then(() => {
+                        Axios.put(API.LITTER(this.props.litter.id), values).then(() => {
                             this.props.handler(JSON.stringify(values));
                             alert("Помет изменен");
                         })

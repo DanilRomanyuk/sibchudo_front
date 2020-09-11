@@ -21,7 +21,9 @@ class CommunitySelect extends Component {
             let options = response.data.map((community) => {
                 return {value: community.id, label: community.name}
             });
-            options.unshift({value: null, label: "Не указан"})
+            if (this.props.params?.nullable) {
+                options.unshift({value: null, label: "Не указан"});
+            }
             this.setState({
                 options: options
             });

@@ -142,6 +142,7 @@ class CatEditForm extends Component {
                             placeholder="Выберите класс животного"/></label>
                         <label>Дополнительный питомник<Field
                             name="community"
+                            params={{nullable: true}}
                             component={CommunitySelect}
                             placeholder="Выберите питомник из списка"/></label>
                         <br/>

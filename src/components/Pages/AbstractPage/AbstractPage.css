@@ -34,3 +34,7 @@ html .bg_green {
         margin: 5% 10%;
     }
 }
+
+.react-datepicker-wrapper{
+    display: inherit!important;
+}

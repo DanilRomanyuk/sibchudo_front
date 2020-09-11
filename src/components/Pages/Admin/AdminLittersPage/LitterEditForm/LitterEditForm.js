@@ -46,12 +46,12 @@ class LitterEditForm extends Component {
                 initialValues={values}
                 validationSchema={
                     Yup.object().shape({
-                        id: Yup.number().nullable(true),
-                        birthday: Yup.date().required(),
-                        community: Yup.number().required(),
-                        father: Yup.number().nullable(true),
-                        mother: Yup.number().nullable(true),
-                        letter: Yup.string().required(),
+                        id: Yup.number().nullable(),
+                        birthday: Yup.date().nullable().required("Нужно заполнить это поле"),
+                        community: Yup.number().nullable().required("Нужно заполнить это поле"),
+                        father: Yup.number().nullable(),
+                        mother: Yup.number().nullable(),
+                        letter: Yup.string().nullable().required("Нужно заполнить это поле"),
                     })}
                 onSubmit={(values, {setSubmitting}) => {
                     if (values.id) {
@@ -76,15 +76,15 @@ class LitterEditForm extends Component {
                 {({setFieldValue, handleSubmit, resetForm, setValues}) => (
                     <form className={"form"} onSubmit={handleSubmit}>
                         <h3>Форма создания или обновления помета</h3>
-                        <Field
+                        <label>Буква<Field
                             name="letter"
                             component={LetterSelect}
-                            placeholder="Буква"/>
-                        <Field
+                            placeholder="Выберите букву"/></label>
+                        <label>Дата рождения<br/><Field
                             name="birthday"
                             component={DateField}
-                            placeholder="Дата рождения"/>
-                        <Field
+                            placeholder="Выберите дату рождения"/></label>
+                        <label>Мать<Field
                             name="mother"
                             params={{
                                 criteria: {
@@ -93,8 +93,8 @@ class LitterEditForm extends Component {
                                 order: {name: 'asc'}
                             }}
                             component={CatSelect}
-                            placeholder="Мать"/>
-                        <Field
+                            placeholder="Выберите мать"/></label>
+                        <label>Отец<Field
                             name="father"
                             params={{
                                 criteria: {
@@ -103,11 +103,11 @@ class LitterEditForm extends Component {
                                 order: {name: 'asc'}
                             }}
                             component={CatSelect}
-                            placeholder="Отец"/>
-                        <Field
+                            placeholder="Выберите отца"/></label>
+                        <label>Питомник<Field
                             name="community"
                             component={CommunitySelect}
-                            placeholder="Питомник"/>
+                            placeholder="Выберите питомник"/></label>
                         <br/>
                         <Button color={"white"}>Сохранить</Button>
                     </form>

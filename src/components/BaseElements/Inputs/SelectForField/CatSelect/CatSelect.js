@@ -22,10 +22,12 @@ class CatSelect extends Component {
         Axios.get(API.CAT(), {
             params: params
         }).then((response) => {
+            let options = response.data.map((cat) => {
+                return {value: cat.id, label: getCatFullName(cat).join(" ")}
+            });
+            options.unshift({value: null, label: "Не указывать"})
             this.setState({
-                options: response.data.map((cat) => {
-                    return {value: cat.id, label: getCatFullName(cat).join(" ")}
-                })
+                options: options
             });
         });
     }

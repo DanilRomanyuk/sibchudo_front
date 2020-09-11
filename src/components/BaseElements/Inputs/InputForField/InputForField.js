@@ -14,6 +14,7 @@ class InputForField extends Component {
                     onChange={(event) => this.props.form.setFieldValue(this.props.field.name, event.target.value)}
                 />
                 <ErrorMessage
+                    className={"error_message"}
                     name={this.props.field.name}
                     component="div"/>
             </Fragment>

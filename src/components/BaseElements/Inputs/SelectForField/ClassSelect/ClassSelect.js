@@ -17,10 +17,12 @@ class ClassSelect extends Component {
 
     loadOptions() {
         Axios.get(API.CLASS).then((response) => {
+            let options = response.data.map((catClass) => {
+                return {value: catClass.id, label: catClass.nameRU}
+            });
+            options.unshift({value: null, label: "Не указан"})
             this.setState({
-                options: response.data.map((catClass) => {
-                    return {value: catClass.id, label: catClass.nameRU}
-                })
+                options: options
             });
         });
     }

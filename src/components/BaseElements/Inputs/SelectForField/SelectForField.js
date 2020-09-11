@@ -19,6 +19,7 @@ class SelectForField extends Component {
                     onChange={(option) => this.props.form.setFieldValue(this.props.field.name, option.value)}
                 /> : <Loader unLoader={defaultCatImage} type={"ThreeDots"} height={40}/>}
                 <ErrorMessage
+                    className={"error_message"}
                     name={this.props.field.name}
                     component="div"/>
             </Fragment>

@@ -16,12 +16,14 @@ class CommunitySelect extends Component {
         this.loadOptions();
     }
 
-    loadOptions(){
-        Axios.get(API.COMMUNITY).then((response) =>{
+    loadOptions() {
+        Axios.get(API.COMMUNITY).then((response) => {
+            let options = response.data.map((community) => {
+                return {value: community.id, label: community.name}
+            });
+            options.unshift({value: null, label: "Не указан"})
             this.setState({
-                options: response.data.map((community)=>{
-                    return {value:community.id, label: community.name}
-                })
+                options: options
             });
         });
     }

@@ -17,10 +17,12 @@ class TitleSelect extends Component {
 
     loadOptions() {
         Axios.get(API.TITLE).then((response) => {
+            let options = response.data.map((title) => {
+                return {value: title.id, label: title.nameRU}
+            });
+            options.unshift({value: null, label: "Не указан"})
             this.setState({
-                options: response.data.map((title) => {
-                    return {value: title.id, label: title.nameRU}
-                })
+                options: options
             });
         });
     }

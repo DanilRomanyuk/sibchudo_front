@@ -67,27 +67,27 @@ class CatEditForm extends Component {
                 enableReinitialize={true}
                 initialValues={values}
                 validationSchema={Yup.object().shape({
-                    id: Yup.number().nullable(true),
-                    name: Yup.string().required(),
+                    id: Yup.number().nullable(),
+                    name: Yup.string().required("Нужно заполнить это поле"),
                     color: Yup.object().shape({
-                        breed: Yup.number().required(),
-                        baseColor: Yup.number().required(),
-                        baseColorAdditional: Yup.number().nullable(true),
-                        code0: Yup.number().nullable(true),
-                        code1: Yup.number().nullable(true),
-                        code2: Yup.number().nullable(true),
-                        code3: Yup.number().nullable(true),
-                        tail: Yup.number().nullable(true),
-                        eyes: Yup.number().nullable(true),
-                        ears: Yup.number().nullable(true)
+                        breed: Yup.number().nullable().required("Нужно заполнить это поле"),
+                        baseColor: Yup.number().nullable().required("Нужно заполнить это поле"),
+                        baseColorAdditional: Yup.number().nullable(),
+                        code0: Yup.number().nullable(),
+                        code1: Yup.number().nullable(),
+                        code2: Yup.number().nullable(),
+                        code3: Yup.number().nullable(),
+                        tail: Yup.number().nullable(),
+                        eyes: Yup.number().nullable(),
+                        ears: Yup.number().nullable()
                     }),
-                    litter: Yup.number().required(),
-                    status: Yup.string().required(),
-                    community: Yup.number().nullable(true),
-                    gender: Yup.string().required(),
-                    owner: Yup.number().nullable(true),
-                    title: Yup.number().nullable(true),
-                    catClass: Yup.number().nullable(true)
+                    litter: Yup.number().nullable().required("Нужно заполнить это поле"),
+                    status: Yup.string().nullable().required("Нужно заполнить это поле"),
+                    community: Yup.number().nullable(),
+                    gender: Yup.string().nullable().required("Нужно заполнить это поле"),
+                    owner: Yup.number().nullable(),
+                    title: Yup.number().nullable(),
+                    catClass: Yup.number().nullable()
                 })}
                 onSubmit={(values, {setSubmitting}) => {
                     if (values.id) {
@@ -112,88 +112,82 @@ class CatEditForm extends Component {
                 {({setFieldValue, handleSubmit, resetForm, setValues}) => (
                     <form className={"form"} onSubmit={handleSubmit}>
                         <h3>Форма создания или обновления котика</h3>
-                        <Field
+                        <label>Имя<Field
                             name="name"
                             component={InputForField}
-                            placeholder="Имя"/>
-                        <Field
+                            placeholder="Укажите имя"/></label>
+                        <label>Помет<Field
                             name="litter"
                             component={LitterSelect}
-                            placeholder="Помет"/>
-                        <Field
+                            placeholder="Выберите помет из списка"/></label>
+                        <label>Статус<Field
                             name="status"
                             component={StatusSelect}
-                            placeholder="Статус"/>
-                        <Field
-                            name="community"
-                            component={CommunitySelect}
-                            placeholder="Питомник"/>
-                        <Field
+                            placeholder="Выберите статус из списка"/></label>
+                        <label>Пол<Field
                             name="gender"
                             component={GenderSelect}
-                            placeholder="Пол"/>
-                        <Field
+                            placeholder="Выберите пол"/></label>
+                        <label>Хозяин<Field
                             name="owner"
                             component={OwnerSelect}
-                            placeholder="Хозяин"/>
-                        <Field
+                            placeholder="Выберите хозяина из списка"/></label>
+                        <label>Титул<Field
                             name="title"
                             component={TitleSelect}
-                            placeholder="Титул"/>
-                        <Field
+                            placeholder="Выберите титул из списка"/></label>
+                        <label>Класс<Field
                             name="catClass"
                             component={ClassSelect}
-                            placeholder="Класс"/>
+                            placeholder="Выберите класс животного"/></label>
+                        <label>Дополнительный питомник<Field
+                            name="community"
+                            component={CommunitySelect}
+                            placeholder="Выберите питомник из списка"/></label>
                         <br/>
                         <div>
                             <h4>Окрас</h4>
-                            <Field
+                            <label>Порода<Field
                                 name="color.breed"
                                 component={BreedSelect}
-                                placeholder="Порода"/>
-                            <Field
+                                placeholder="Выберите породу"/></label>
+                            <label>Основной цвет<Field
                                 name="color.baseColor"
                                 component={BaseColorSelect}
-                                placeholder="Основной цвет"/>
-                            <Field
+                                placeholder="Выберите основной цвет"/></label>
+                            <label>Дополнительный цвет<Field
                                 name="color.baseColorAdditional"
                                 component={BaseColorSelect}
-                                placeholder="Дополнительный цвет"/>
-                            <Field
+                                params={{nullable: true}}
+                                placeholder="Выберите дополнительный цвет"/></label>
+                            <label>Код окраса начинающийся с 0<Field
                                 name="color.code0"
                                 params={{custom: {firstNumber: 0}}}
-                                component={ColorCodeSelect}
-                                placeholder="Код окраса начинающийся с 0"/>
-                            <Field
+                                component={ColorCodeSelect}/></label>
+                            <label>Код окраса начинающийся с 1<Field
                                 name="color.code1"
                                 params={{custom: {firstNumber: 1}}}
-                                component={ColorCodeSelect}
-                                placeholder="Код окраса начинающийся с 1"/>
-                            <Field
+                                component={ColorCodeSelect}/></label>
+                            <label>Код окраса начинающийся с 2<Field
                                 name="color.code2"
                                 params={{custom: {firstNumber: 2}}}
-                                component={ColorCodeSelect}
-                                placeholder="Код окраса начинающийся с 2"/>
-                            <Field
+                                component={ColorCodeSelect}/></label>
+                            <label>Код окраса начинающийся с 3<Field
                                 name="color.code3"
                                 params={{custom: {firstNumber: 3}}}
-                                component={ColorCodeSelect}
-                                placeholder="Код окраса начинающийся с 3"/>
-                            <Field
+                                component={ColorCodeSelect}/></label>
+                            <label>Тип хвоста<Field
                                 name="color.tail"
                                 params={{custom: {firstNumber: 5}}}
-                                component={ColorCodeSelect}
-                                placeholder="Код типа хвоста"/>
-                            <Field
+                                component={ColorCodeSelect}/></label>
+                            <label>Цвет глаз<Field
                                 name="color.eyes"
                                 params={{custom: {firstNumber: 6}}}
-                                component={ColorCodeSelect}
-                                placeholder="Код цвета глаз"/>
-                            <Field
+                                component={ColorCodeSelect}/></label>
+                            <label>Тип ушей<Field
                                 name="color.ears"
                                 params={{custom: {firstNumber: 7}}}
-                                component={ColorCodeSelect}
-                                placeholder="Код типа ушей"/>
+                                component={ColorCodeSelect}/></label>
                         </div>
                         <Button color={"white"}>Сохранить</Button>
                     </form>

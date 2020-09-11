@@ -17,10 +17,14 @@ class BaseColorSelect extends Component {
 
     loadOptions() {
         Axios.get(API.BASE_COLOR).then((response) => {
+            let options = response.data.map((baseColor) => {
+                return {value: baseColor.id, label: baseColor.nameRU + " (" + baseColor.code + ")"}
+            });
+            if (this.props.params?.nullable) {
+                options.unshift({value: null, label: "Не указан"});
+            }
             this.setState({
-                options: response.data.map((baseColor) => {
-                    return {value: baseColor.id, label: baseColor.nameRU + " (" + baseColor.code + ")"}
-                })
+                options: options
             });
         });
     }

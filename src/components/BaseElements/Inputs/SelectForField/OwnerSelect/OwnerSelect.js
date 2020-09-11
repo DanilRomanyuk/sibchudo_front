@@ -17,10 +17,12 @@ class OwnerSelect extends Component {
 
     loadOptions() {
         Axios.get(API.OWNER).then((response) => {
+            let options = response.data.map((owner) => {
+                return {value: owner.id, label: owner.name}
+            });
+            options.unshift({value: null, label: "Не указан"})
             this.setState({
-                options: response.data.map((owner) => {
-                    return {value: owner.id, label: owner.name}
-                })
+                options: options
             });
         });
     }

@@ -5,6 +5,7 @@ body {
     font-family: Montserrat, sans-serif;
     font-weight: 400;
     --green: #329b21;
+    --red: #ff0000b3;
     --green_transparent: #329b21a3;
 }
 
@@ -16,11 +17,11 @@ body {
     color: var(--green);
 }
 
-.color_red{
+.color_red {
     color: red;
 }
 
-.color_blue{
+.color_blue {
     color: blue;
 }
 

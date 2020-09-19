@@ -5,6 +5,7 @@ import Button from "../../../BaseElements/Button/Button";
 import AdminLittersTable from "./AdminLittersTable/AdminLittersTable";
 import {ModalContext} from "../../../App/App";
 import LitterEditForm from "./LitterEditForm/LitterEditForm";
+import SearchRow from "../../../BaseElements/SearchRow/SearchRow";
 
 export let litterUpdater = () => {};
 export let setLitterUpdater = (newLitterUpdater) => {
@@ -21,6 +22,7 @@ class AdminLittersPage extends Component {
                         <Button color={"green"} onClick={() => modal.openModal(<LitterEditForm modal={modal}/>)}>Добавить
                             помет</Button>
                     </div>
+                    <SearchRow/>
                     <AdminLittersTable countLitterOnPage={20} openEditModal={(litter) => {
                         modal.openModal(<LitterEditForm litter={litter} modal={modal}/>)
                     }}/>

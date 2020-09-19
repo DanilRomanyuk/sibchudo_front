@@ -6,6 +6,10 @@
     justify-content: space-evenly;
 }
 
+.cat_info_container > div{
+    max-width: 50%;
+}
+
 .media{
     display: flex;
     flex-wrap: wrap;

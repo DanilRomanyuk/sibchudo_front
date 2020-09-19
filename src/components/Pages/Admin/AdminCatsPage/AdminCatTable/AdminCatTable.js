@@ -115,10 +115,10 @@ class AdminCatTable extends Component {
                     <CatStatus status={cat.status}/>
                 </CatTableCell>
                 <CatTableCell key={cat.id + "color"}>
-                    <CatColor color={cat.color}/>
+                    <CatColor onlyCode={true} color={cat.color}/>
                 </CatTableCell>
                 <CatTableCell key={cat.id + "toolbar"}>
-                    <AdminCatToolbar cat={cat} openEditModal={this.props.openEditModal} />
+                    <AdminCatToolbar cat={cat} openEditModal={this.props.openEditModal}/>
                 </CatTableCell>
             </Tr>
         );

@@ -10,7 +10,7 @@ import CatInfo from "./CatInfo/CatInfo";
 import CatName from "../../BaseElements/Cat/CatName/CatName";
 import CatAvatar from "../../BaseElements/Cat/CatAvatar/CatAvatar";
 import LitterPreview from "../../BaseElements/Litter/LitterPreview/LitterPreview";
-import {API} from "../../../const";
+import {API, BASE_URL} from "../../../const";
 
 const catTemplate = {
     name: "...",
@@ -59,10 +59,10 @@ class CatPage extends Component {
                     <br/>
                     <CatAvatar cat={cat}/>
                 </div>
-                <div className={"medias"}>
-                    {cat.medias ? cat.medias.map((item) => {
+                <div className={"media"}>
+                    {cat.media ? cat.media.map((item) => {
                         return <Img
-                            src={item.destination}
+                            src={item.destination.startsWith("http") ? item.destination : BASE_URL + item.dir + item.destination}
                             key={item.id}
                             loader={<Loader unLoader={defaultCatImage} type={"Oval"} width={300} height={300}/>}/>
                     }) : ""}
@@ -84,8 +84,8 @@ class CatPage extends Component {
             } else {
                 document.location.href = "/404";
             }
-        }).catch(() => {
-            document.location.href = "/404";
+        }).catch((e) => {
+            console.log(e);
         });
     }
 }

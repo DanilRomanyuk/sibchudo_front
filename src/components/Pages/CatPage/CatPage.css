@@ -6,12 +6,12 @@
     justify-content: space-evenly;
 }
 
-.medias{
+.media{
     display: flex;
     flex-wrap: wrap;
 }
 
-.medias > *{
+.media > *{
     width: 400px;
     margin: 10px;
 }

@@ -4,15 +4,24 @@ import Img from 'react-image';
 import Loader from 'react-loader-spinner';
 import "./CatAvatar.css";
 import CatLink from "../../Link/CatLink";
+import {BASE_URL} from "../../../../const";
 
 class CatAvatar extends Component {
     render() {
-        let destination = null;
+        let media = null;
         let id = this.props.cat ? this.props.cat.id : null;
         if (this.props.cat) {
             if (this.props.cat.avatar) {
-                destination = this.props.cat.avatar.destination
+                media = this.props.cat.avatar;
+            } else {
+                if (this.props.cat.media) {
+                    media = this.props.cat.media[0];
+                }
             }
+        }
+        let destination = null;
+        if (media) {
+            destination = media.destination.startsWith("http") ? media.destination : BASE_URL + media.dir + media.destination;
         }
         let avatar =
             <div className={"cat_avatar"}>

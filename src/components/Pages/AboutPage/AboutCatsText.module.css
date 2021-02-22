@@ -1,0 +1,17 @@
+.wrapper{
+    max-width: 100%;
+  
+}
+.mainText{
+    text-align: justify;
+    font-size: 17px;
+}
+.title {
+    font-size: 27px;
+    color: green;
+}
+.rep{
+    text-align: right;
+    font-style: italic;
+    font-size: 17px;
+}

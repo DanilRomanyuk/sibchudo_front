@@ -16,6 +16,7 @@ class AbstractPage extends Component {
                     <TitleDescription/>
                 </Header>
                 <div className={'content'}>{this.props.children}</div>
+                
                 <Footer/>
             </div>
 

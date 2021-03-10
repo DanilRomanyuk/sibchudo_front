@@ -1,5 +1,5 @@
 import React, {Component} from "react";// import CatSlider from "./CatSlider/CatSlider";
-
+import Carousel from 'react-elastic-carousel'
 import AbstractPage from "../AbstractPage/AbstractPage";
 import TitleH2 from "../../BaseElements/TitleH2/TitleH2";
 import './HomePage.css';
@@ -40,6 +40,21 @@ class HomePage extends Component {
                     <TitleH2 text={"Наши котята"}/>
                     <Button color={'green'} href={"/kittens"}>Все котята</Button>
                 </div>
+                <div className={'slider'}>
+                <Carousel itemsToShow={3}>
+                <div>
+                <h2>Mother</h2>
+                <img src="https://brandlogovector.com/wp-content/uploads/2020/08/React-Logo-Small.png" alt="pic" /></div>
+                <div>
+                <h2>Child</h2>
+                <img src="https://brandlogovector.com/wp-content/uploads/2020/08/React-Logo-Small.png" alt="pic" /></div>
+                <div>
+                <h2>Dad</h2>
+                <img src="https://brandlogovector.com/wp-content/uploads/2020/08/React-Logo-Small.png" alt="pic" /></div>
+                <div><img src="https://brandlogovector.com/wp-content/uploads/2020/08/React-Logo-Small.png" alt="pic" /></div>
+              
+                 </Carousel>
+                   </div>
                 <div className={"block"}>
                 </div>
 

@@ -4,11 +4,23 @@ import AbstractPage from "../AbstractPage/AbstractPage";
 import TitleH2 from "../../BaseElements/TitleH2/TitleH2";
 import './HomePage.css';
 import Button from "../../BaseElements/Button/Button";
+import axios from "axios";
 // import CatSlider from "./CatSlider/CatSlider";
 
-
+let dataCats;
 class HomePage extends Component {
+    componentDidMount(){
+        
+        axios.get('http://45.84.224.17/api/litter?limit=2')
+  .then(function (response) {
+    
+   dataCats=response.data;
+   console.log(dataCats);
+   console.log(response.data[0].community.name)
+  })
+    }
     render() {
+        console.log(dataCats[0].community.name)
         return (
             <AbstractPage title={'Главная - Питомник «Сибирское Чудо» – Коллективный питомник сибирских кошек'}>
                 <TitleH2 text={"О питомнике"}/>
@@ -46,13 +58,13 @@ class HomePage extends Component {
                 <h2>Mother</h2>
                 <img src="https://brandlogovector.com/wp-content/uploads/2020/08/React-Logo-Small.png" alt="pic" /></div>
                 <div>
-                <h2>Child</h2>
+                <h2>{dataCats[0].community.name}</h2>
                 <img src="https://brandlogovector.com/wp-content/uploads/2020/08/React-Logo-Small.png" alt="pic" /></div>
                 <div>
                 <h2>Dad</h2>
                 <img src="https://brandlogovector.com/wp-content/uploads/2020/08/React-Logo-Small.png" alt="pic" /></div>
                 <div><img src="https://brandlogovector.com/wp-content/uploads/2020/08/React-Logo-Small.png" alt="pic" /></div>
-              
+                 <div>{dataCats}</div>
                  </Carousel>
                    </div>
                 <div className={"block"}>
